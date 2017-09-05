@@ -1,3 +1,6 @@
+	// Shao Ching Kao
+	//"August 28, 2017
+	// Pokemon World - Learn and practice how to use escape keys
 
 public class PokemonWorld {
 	public static void main(String[] args) {
