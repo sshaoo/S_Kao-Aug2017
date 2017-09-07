@@ -30,7 +30,9 @@ public class Calculate {
 		return average; }
 	/* Another "average" method. 
 	 * This one accepts three doubles and returns a double. 
-	 * The name is the same, the difference is in the header and the calculation. 
+	 * The name is the same, the difference is in the header and the calculation
+	 * An example of overloading = the ability to define two or more different methods 
+	 * with the same name but different method. 
 	 */
 
 	public static double toDegrees (double radians) {	
@@ -76,8 +78,18 @@ public class Calculate {
 	public static String foil (int a, int b, int c, int d, String variable) {
 		String foil = (((a * c) + (variable) + "^2" + "+" + (((a * d) + (b * c)) + variable) + "+" + (b * d) ));
 			return foil; }
+	/* A call to "foil" converts a binomial multiplication of the form (ax + b)(cx + d)
+	 * into a quadratic equation of the form ax^2 + bx + c. 
+	 * The method accepts a four integers and a String and then returns a String.
+	 */
+	
+	public static boolean isDivisibleBy (int integerOne, int integerTwo) {
+		if (integerOne % integerTwo == 0) {
+			return true; }
+		else {
+			return false;} 
+		}
 				
-	}
-
+	public static double absValue (double x, double y) {
 
 			
