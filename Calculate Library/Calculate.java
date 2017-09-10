@@ -58,14 +58,14 @@ public class Calculate {
 	 *  and returns the value of the discriminant. 
 	 *  The method accepts three doubles and returns a double.
 	 */
-	
+
 	public static String toImproperFrac (int wholeNumber, int numerator, int denominator) {
 		String toImproperFrac = (((denominator * wholeNumber) + numerator) + "/" + denominator);
 		return toImproperFrac; }
 	/* A call to "toImproperFrac" converts mixed number into an improper function
 	 * The method accepts three integers and return a String
 	 */
-	
+
 	public static String toMixedNum (int numerator, int denominator) {
 		int x = (numerator/denominator);
 		int y = (numerator%denominator);
@@ -74,22 +74,77 @@ public class Calculate {
 	/* A call to "toMixedNum" converts an improper fraction into a mixed number. 
 	 * The method accepts two integers and returns a string.
 	 */
-	
+
 	public static String foil (int a, int b, int c, int d, String variable) {
 		String foil = (((a * c) + (variable) + "^2" + "+" + (((a * d) + (b * c)) + variable) + "+" + (b * d) ));
-			return foil; }
+		return foil; }
 	/* A call to "foil" converts a binomial multiplication of the form (ax + b)(cx + d)
 	 * into a quadratic equation of the form ax^2 + bx + c. 
 	 * The method accepts a four integers and a String and then returns a String.
 	 */
-	
+
 	public static boolean isDivisibleBy (int integerOne, int integerTwo) {
 		if (integerOne % integerTwo == 0) {
 			return true; }
 		else {
-			return false;} 
-		}
-				
-	public static double absValue (double x, double y) {
+			return false; }
+	}
+	/* A call to "isDivisibleBy" determines whether or not one integer is evenly divisble by another. 
+		 * The method accepts two integers and returns a boolean.		
+		 */
 
-			
+	public static double absValue (double x) {
+		if (x < 0) {
+				return x * -1; }
+		else {
+				return x; }
+	}
+	/* A call to "abszvalue returns the absolute value of the number passed.
+	 * The method accepts a double and returns a double.
+	 */
+	
+	public static double max (double x, double y) {
+		if (x > y) {
+			return x; }
+		else {
+			return y; }
+	}
+	/* A call to "max" returns the larger of the values passed. 
+	 * The method accepts two double and returs a double
+	 */
+	
+	public static double max (double x, double y, double z) {
+		if (x > y && x > z) {
+			return x; }
+		else if (y> x && y > z) {
+			return y; }
+		else {
+			return z; }
+	}
+	/* Overload the max method. 
+	 * This one accepts three doubles and returns a double
+	 */
+	
+	public static int min (int x, int y) {
+		if (x < y) {
+			return x; }
+		else {
+			return y; }
+	}
+	/* A call to "min" returns the smaller of the values passed. 
+	 * The method accepts two integers and returns an int.
+	 */
+	
+	public static double round2 (double x) {
+		if (x * 1000 % 10 < 5) {
+			return (x * 1000) - (x * 1000 % 10); }
+		else {
+			return ((x * 1000) + (1 + (x * 1000 % 10)))/1000; }
+	}
+	/* A call to "round2" rounds a double correctly to 2 decimal places 
+	 * and returns a double
+	 */
+}
+
+
+
