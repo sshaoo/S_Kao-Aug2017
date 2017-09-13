@@ -93,43 +93,43 @@ public class Calculate {
 		 * The method accepts two integers and returns a boolean.		
 		 */
 
-	public static double absValue (double x) {
-		if (x < 0) {
-				return x * -1; }
+	public static double absValue (double valueOne) {
+		if (valueOne < 0) {
+				return valueOne * -1; }
 		else {
-				return x; }
+				return valueOne; }
 	}
-	/* A call to "abszvalue returns the absolute value of the number passed.
+	/* A call to "absValue returns the absolute value of the number passed.
 	 * The method accepts a double and returns a double.
 	 */
 	
-	public static double max (double x, double y) {
-		if (x > y) {
-			return x; }
+	public static double max (double valueOne, double valueTwo) {
+		if (valueOne > valueTwo) {
+			return valueOne; }
 		else {
-			return y; }
+			return valueTwo; }
 	}
 	/* A call to "max" returns the larger of the values passed. 
-	 * The method accepts two double and returs a double
+	 * The method accepts two double and returns a double
 	 */
 	
-	public static double max (double x, double y, double z) {
-		if (x > y && x > z) {
-			return x; }
-		else if (y> x && y > z) {
-			return y; }
+	public static double max (double valueOne, double valueTwo, double valueThree) {
+		if (valueOne > valueTwo && valueOne > valueThree) {
+			return valueOne; }
+		else if (valueTwo > valueOne && valueTwo > valueThree) {
+			return valueTwo; }
 		else {
-			return z; }
+			return valueThree; }
 	}
 	/* Overload the max method. 
 	 * This one accepts three doubles and returns a double
 	 */
 	
-	public static int min (int x, int y) {
-		if (x < y) {
-			return x; }
+	public static int min (int valueOne, int valueTwo) {
+		if (valueOne < valueTwo) {
+			return valueOne; }
 		else {
-			return y; }
+			return valueTwo; }
 	}
 	/* A call to "min" returns the smaller of the values passed. 
 	 * The method accepts two integers and returns an int.
@@ -144,7 +144,23 @@ public class Calculate {
 	/* A call to "round2" rounds a double correctly to 2 decimal places 
 	 * and returns a double
 	 */
+	
+	public static double exponent (double base, int exponentialValue) {
+		int i;
+		for (i = 2; i <= exponentialValue; i++) {
+			base *= base; }
+		return base; 
+	}
+	/* A call to "exponent" raises a value to a positive integer power. 
+	 * The method accepts a double and an integer and returns a double. 
+	 * For time being, assume that the exponent is positive. 
+	 */
+	
+	public static int factorial (int valueOne) { 
+		
+	}
 }
+
 
 
 
