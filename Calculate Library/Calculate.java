@@ -18,15 +18,15 @@ public class Calculate {
 	 * The method accepts an integer and returns an integer.
 	 */
 
-	public static double average (double firstNumber, double secondNumber) {
-		double average = (firstNumber + secondNumber)/2; 
+	public static double average (double valueOne, double valueTwo) {
+		double average = (valueOne + valueTwo)/2; 
 		return average; }
 	/* A call to "average" returns the average of the balues passed to it. 
 	 * This method accepts two doubles and returns a double.
 	 */
 
-	public static double average (double firstNumber, double secondNumber, double thirdNumber) {
-		double average = (firstNumber + secondNumber + thirdNumber)/3;
+	public static double average (double valueOne, double valueTwo, double valueThree) {
+		double average = (valueOne + valueTwo + valueTwo)/3;
 		return average; }
 	/* Another "average" method. 
 	 * This one accepts three doubles and returns a double. 
@@ -83,26 +83,26 @@ public class Calculate {
 	 * The method accepts a four integers and a String and then returns a String.
 	 */
 
-	public static boolean isDivisibleBy (int integerOne, int integerTwo) {
-		if (integerOne % integerTwo == 0) {
+	public static boolean isDivisibleBy (int valueOne, int valueTwo) {
+		if (valueOne % valueTwo == 0) {
 			return true; }
 		else {
 			return false; }
 	}
 	/* A call to "isDivisibleBy" determines whether or not one integer is evenly divisble by another. 
-		 * The method accepts two integers and returns a boolean.		
-		 */
+	 * The method accepts two integers and returns a boolean.		
+	 */
 
-	public static double absValue (double valueOne) {
-		if (valueOne < 0) {
-				return valueOne * -1; }
+	public static double absValue (double value) {
+		if (value < 0) {
+			return value * -1; }
 		else {
-				return valueOne; }
+			return value; }
 	}
 	/* A call to "absValue returns the absolute value of the number passed.
 	 * The method accepts a double and returns a double.
 	 */
-	
+
 	public static double max (double valueOne, double valueTwo) {
 		if (valueOne > valueTwo) {
 			return valueOne; }
@@ -112,7 +112,7 @@ public class Calculate {
 	/* A call to "max" returns the larger of the values passed. 
 	 * The method accepts two double and returns a double
 	 */
-	
+
 	public static double max (double valueOne, double valueTwo, double valueThree) {
 		if (valueOne > valueTwo && valueOne > valueThree) {
 			return valueOne; }
@@ -124,7 +124,7 @@ public class Calculate {
 	/* Overload the max method. 
 	 * This one accepts three doubles and returns a double
 	 */
-	
+
 	public static int min (int valueOne, int valueTwo) {
 		if (valueOne < valueTwo) {
 			return valueOne; }
@@ -134,17 +134,17 @@ public class Calculate {
 	/* A call to "min" returns the smaller of the values passed. 
 	 * The method accepts two integers and returns an int.
 	 */
-	
-	public static double round2 (double x) {
-		if (x * 1000 % 10 < 5) {
-			return (x * 1000) - (x * 1000 % 10); }
+
+	public static double round2 (double value) {
+		if (value * 1000 % 10 < 5) {
+			return (value * 1000) - (value * 1000 % 10); }
 		else {
-			return ((x * 1000) + (1 + (x * 1000 % 10)))/1000; }
+			return ((value * 1000) + (1 + (value * 1000 % 10)))/1000; }
 	}
 	/* A call to "round2" rounds a double correctly to 2 decimal places 
 	 * and returns a double
 	 */
-	
+
 	public static double exponent (double base, int exponentialValue) {
 		int i;
 		for (i = 2; i <= exponentialValue; i++) {
@@ -155,12 +155,58 @@ public class Calculate {
 	 * The method accepts a double and an integer and returns a double. 
 	 * For time being, assume that the exponent is positive. 
 	 */
-	
-	public static int factorial (int valueOne) { 
-		
+
+	public static int factorial (int value) {
+		int product = 1;
+		for (int i = 2; i <= value; i++) {
+			product *= i; }
+		return product; 
 	}
+	/* A call to "factorial" returns the factorial of the value passed. 
+	 * The method accepts an integer and returns an integer. 
+	 * For the time being, assume that the exponent is positive.
+	 */
+
+	public static boolean isPrime (int value) {
+		for (int i = 2; i < value; i++) {
+			if (Calculate.isDivisibleBy(value, i) == true) {
+				return true; }
+		}
+		return false; 
+	}
+	/* A call to "isPrime" determines whether or not an integer is prime.
+	 * The method accepts an integer and return a boolean. 
+	 * For the time being, you can assume that both integers are positive.
+	 */
+
+	public static int gcf (int valueOne, int valueTwo) {
+		int gcf = 1;
+			for (int i = 1; i <= valueTwo; i++) {
+				if (isDivisibleBy(valueOne, i) && isDivisibleBy (valueTwo, i)) {
+					gcf = i; } 
+			}	
+		return gcf;
+	}
+	/* A call to "gcf" finds the greatest common factor of two integers.
+	 * The method accepts two positive integers and returns an integer. 
+	 * For the time being, you can assume that both integers are positive. 
+	 */
+	
+	public static double sqrt (double valueOne) {
+		if (valueOne >0) {
+			throw new IllegalArgumentException("Cannot square root negatives"); }
+		double integerOne;
+		double squareRoot = valueOne / 2;
+		do {
+			integerOne = squareRoot; 
+			squareRoot = (integerOne + (squareRoot / integerOne) / 2); }
+		while ((integerOne - squareRoot) != 0); 
+			return Calculate.round2 (squareRoot); 
+	}
+	/* A call to "sqrt" return an approximation of the square root of the value passed,
+	 *  rounded to two decimal places. 
+	 *  This method accepts a double and returns a double. 
+	 */
 }
-
-
 
 
