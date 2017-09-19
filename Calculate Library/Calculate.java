@@ -207,6 +207,11 @@ public class Calculate {
 	 *  rounded to two decimal places. 
 	 *  This method accepts a double and returns a double. 
 	 */
+
+	public static String quadForm (double valueOne, double valueTwo, double valueThree) {
+		
+	}
 }
+
 
 
