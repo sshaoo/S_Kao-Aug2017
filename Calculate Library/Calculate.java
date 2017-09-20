@@ -60,6 +60,9 @@ public class Calculate {
 	 */
 
 	public static String toImproperFrac (int wholeNumber, int numerator, int denominator) {
+		if (denominator == 0) {
+			throw new IllegalArgumentException ("Denominator cannot be zero");
+		}
 		String toImproperFrac = (((denominator * wholeNumber) + numerator) + "/" + denominator);
 		return toImproperFrac; }
 	/* A call to "toImproperFrac" converts mixed number into an improper function
@@ -67,6 +70,9 @@ public class Calculate {
 	 */
 
 	public static String toMixedNum (int numerator, int denominator) {
+		if (denominator == 0) {
+			throw new IllegalArgumentException ("Denominator cannot be zero");
+		}
 		int x = (numerator/denominator);
 		int y = (numerator%denominator);
 		String toMixedNum = x + (y + "/" +denominator); 
@@ -84,6 +90,9 @@ public class Calculate {
 	 */
 
 	public static boolean isDivisibleBy (int valueOne, int valueTwo) {
+		if (valueTwo == 0) {
+			throw new IllegalArgumentException("Denominator cannot be zero"); 
+		}
 		if (valueOne % valueTwo == 0) {
 			return true; }
 		else {
@@ -145,9 +154,12 @@ public class Calculate {
 	 * and returns a double
 	 */
 
-	public static double exponent (double base, int exponentialValue) {
+	public static double exponent (double base, int exponent) {
+		if (exponent < 0) {
+			throw new IllegalArgumentException ("Please input a positive exponent");
+		}
 		int i;
-		for (i = 2; i <= exponentialValue; i++) {
+		for (i = 2; i <= exponent; i++) {
 			base *= base; }
 		return base; 
 	}
@@ -157,6 +169,9 @@ public class Calculate {
 	 */
 
 	public static int factorial (int value) {
+		if (value < 0) {
+			throw new IllegalArgumentException ("The value cannot be negative");
+		}
 		int product = 1;
 		for (int i = 2; i <= value; i++) {
 			product *= i; }
@@ -168,6 +183,9 @@ public class Calculate {
 	 */
 
 	public static boolean isPrime (int value) {
+		if (value < 0) {
+			throw new IllegalArgumentException ("Please input a positive value");
+		}
 		for (int i = 2; i < value; i++) {
 			if (Calculate.isDivisibleBy(value, i) == true) {
 				return true; }
@@ -180,6 +198,12 @@ public class Calculate {
 	 */
 
 	public static int gcf (int valueOne, int valueTwo) {
+		if (valueOne < 0) {
+			throw new IllegalArgumentException ("Please enter a positive value");
+		}
+		if (valueTwo < 0) {
+			throw new IllegalArgumentException ("Please enter a positive value");
+		}
 		int gcf = 1;
 			for (int i = 1; i <= valueTwo; i++) {
 				if (isDivisibleBy(valueOne, i) && isDivisibleBy (valueTwo, i)) {
@@ -208,8 +232,23 @@ public class Calculate {
 	 *  This method accepts a double and returns a double. 
 	 */
 
-	public static String quadForm (double valueOne, double valueTwo, double valueThree) {
-		
+	public static String quadForm (int valueOne, int valueTwo, int valueThree) {
+		double valueOneDouble = valueOne;
+		double valueTwoDouble = valueTwo;
+		double valueThreeDouble = valueThree;
+		double discriminant = Calculate.discriminant(valueOneDouble, valueTwoDouble, valueThreeDouble);
+			if (discriminant < 0) {
+				return ("no real roots"); }
+		double quadFormAddition = ((-1 * valueTwoDouble) + (Calculate.sqrt(discriminant))/(2 * valueThreeDouble));
+		double quadFormSubtraction = ((-1 * valueTwoDouble) - (Calculate.sqrt(discriminant))/(2 * valueThreeDouble));
+		quadFormAddition = Calculate.round2(quadFormAddition);
+		quadFormSubtraction = Calculate.round2(quadFormSubtraction);
+			if (quadFormAddition == quadFormSubtraction) {
+				return (quadFormAddition + ""); }
+			if (quadFormAddition < quadFormSubtraction) {
+				return (quadFormAddition + " and " + quadFormSubtraction); }
+			else {
+				return (quadFormSubtraction + " and " + quadFormAddition); }
 	}
 }
 
