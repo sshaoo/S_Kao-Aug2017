@@ -248,13 +248,14 @@ public class Calculate {
 			if (quadFormAddition < quadFormSubtraction) {
 				return (quadFormAddition + " and " + quadFormSubtraction); }
 			else {
-				return (quadFormSubtraction + " and " + quadFormAddition); }
+				return (quadFormSubtraction + " and " + quadFormAddition); 
+				}
+	}
 	/*A call to "quadForm" uses the coefficients of a quadratic equation in standard form and 
 	 * uses the quadratic formula to approximate the real roots, if any.
 	 * The method accepts three integers and returns a String. 
 	 * To receive full credit, the method should call multiple methods that you've already written in for this library.
 	 */
-	}
 }
 
 
