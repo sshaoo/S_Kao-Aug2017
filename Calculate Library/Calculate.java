@@ -6,28 +6,32 @@ public class Calculate {
 
 	public static int square (int operand) {
 		int square = operand * operand;
-		return square; }		
+		return square; 
+	}		
 	/* A call to "square" returns the square of the value passed. 
 	 * The method acccepts an integer and returns an integer.
 	 */
 
 	public static int cube (int numberCubed) {
 		int cube = numberCubed * numberCubed * numberCubed;
-		return cube; }			
+		return cube; 
+	}			
 	/* A call to "cube" returns the cube of the value passed. 
 	 * The method accepts an integer and returns an integer.
 	 */
 
 	public static double average (double valueOne, double valueTwo) {
 		double average = (valueOne + valueTwo)/2; 
-		return average; }
+		return average; 
+	}
 	/* A call to "average" returns the average of the balues passed to it. 
 	 * This method accepts two doubles and returns a double.
 	 */
 
 	public static double average (double valueOne, double valueTwo, double valueThree) {
-		double average = (valueOne + valueTwo + valueTwo)/3;
-		return average; }
+		double average = ((valueOne + valueTwo + valueThree)/3);
+		return average; 
+	}
 	/* Another "average" method. 
 	 * This one accepts three doubles and returns a double. 
 	 * The name is the same, the difference is in the header and the calculation
@@ -37,7 +41,8 @@ public class Calculate {
 
 	public static double toDegrees (double radians) {	
 		double toDegrees = ((180/3.14159) * radians);
-		return toDegrees; }
+		return toDegrees; 
+	}
 	/* A call to "toDegrees" converts an angle measure given in radians into degrees. 
 	 * The method accepts a double and returns a double.
 	 * the method should use 3.14159 as an approximation for pi.
@@ -45,7 +50,8 @@ public class Calculate {
 
 	public static double toRadians (double degrees) {
 		double toRadians = ((3.14159/180) * degrees);
-		return toRadians; }
+		return toRadians; 
+	}
 	/* A call to "toRadians" converts an angle measure given in degrees into radians. 
 	 * The method accepts a double and returns a double. 
 	 * The method should use 3.14159 as an approximation for pi.
@@ -53,7 +59,8 @@ public class Calculate {
 
 	public static double discriminant (double a, double b, double c) {
 		double discriminant = ((b * b) - (4 * a * c));
-		return discriminant; }
+		return discriminant; 
+	}
 	/* A call to "discriminant" provides the coefficients of a quadratic equation in standard form (a,b,c)
 	 *  and returns the value of the discriminant. 
 	 *  The method accepts three doubles and returns a double.
@@ -64,7 +71,8 @@ public class Calculate {
 			throw new IllegalArgumentException ("Denominator cannot be zero");
 		}
 		String toImproperFrac = (((denominator * wholeNumber) + numerator) + "/" + denominator);
-		return toImproperFrac; }
+		return toImproperFrac; 
+	}
 	/* A call to "toImproperFrac" converts mixed number into an improper function
 	 * The method accepts three integers and return a String
 	 */
@@ -75,15 +83,17 @@ public class Calculate {
 		}
 		int x = (numerator/denominator);
 		int y = (numerator%denominator);
-		String toMixedNum = x + (y + "/" +denominator); 
-		return toMixedNum; }
+		String toMixedNum = x + ("_" + y + "/" + denominator); 
+		return toMixedNum; 
+	}
 	/* A call to "toMixedNum" converts an improper fraction into a mixed number. 
 	 * The method accepts two integers and returns a string.
 	 */
 
 	public static String foil (int a, int b, int c, int d, String variable) {
 		String foil = (((a * c) + (variable) + "^2" + "+" + (((a * d) + (b * c)) + variable) + "+" + (b * d) ));
-		return foil; }
+		return foil; 
+	}
 	/* A call to "foil" converts a binomial multiplication of the form (ax + b)(cx + d)
 	 * into a quadratic equation of the form ax^2 + bx + c. 
 	 * The method accepts a four integers and a String and then returns a String.
@@ -145,10 +155,21 @@ public class Calculate {
 	 */
 
 	public static double round2 (double value) {
-		if (value * 1000 % 10 < 5) {
-			return (value * 1000) - (value * 1000 % 10); }
-		else {
-			return ((value * 1000) + (1 + (value * 1000 % 10)))/1000; }
+		double timesOneHundered = value * 100.0;
+		int truncNum = (int)timesOneHundered;
+		double difference = Calculate.absValue(truncNum - (value*100));
+		if (difference < .5){
+			double returnNum = truncNum/100.0;
+			return (returnNum);
+		} else if (difference >= .5){
+			if (value <0){
+				double returnNum = (truncNum - 1.0)/100.0;
+				return (returnNum);
+			}
+			double returnNum = (truncNum + 1.0)/100.0;
+			return (returnNum);
+		}
+		return(-1.0);
 	}
 	/* A call to "round2" rounds a double correctly to 2 decimal places 
 	 * and returns a double
@@ -173,7 +194,7 @@ public class Calculate {
 			throw new IllegalArgumentException ("The value cannot be negative");
 		}
 		int product = 1;
-		for (int i = 2; i <= value; i++) {
+		for (int i = value; i > 0; i--) {
 			product *= i; }
 		return product; 
 	}
@@ -186,11 +207,12 @@ public class Calculate {
 		if (value < 0) {
 			throw new IllegalArgumentException ("Please input a positive value");
 		}
-		for (int i = 2; i < value; i++) {
-			if (Calculate.isDivisibleBy(value, i) == true) {
-				return true; }
+		boolean prime = true;
+		value = (int) absValue(value);
+		if (value % 2 == 0){
+				prime = false;
 		}
-		return false; 
+		return prime;
 	}
 	/* A call to "isPrime" determines whether or not an integer is prime.
 	 * The method accepts an integer and return a boolean. 
@@ -217,15 +239,13 @@ public class Calculate {
 	 */
 	
 	public static double sqrt (double valueOne) {
-		if (valueOne >0) {
+		if (valueOne < 0) {
 			throw new IllegalArgumentException("Cannot square root negatives"); }
-		double integerOne;
-		double squareRoot = valueOne / 2;
-		do {
-			integerOne = squareRoot; 
-			squareRoot = (integerOne + (squareRoot / integerOne) / 2); }
-		while ((integerOne - squareRoot) != 0); 
-			return Calculate.round2 (squareRoot); 
+		double answer = (valueOne / 2);
+		while (!(Calculate.absValue((answer * answer) - valueOne) <= .009)){
+			answer = .5 * (answer + (valueOne /answer));
+		}
+		return (Calculate.round2(answer));
 	}
 	/* A call to "sqrt" return an approximation of the square root of the value passed,
 	 *  rounded to two decimal places. 
@@ -239,8 +259,8 @@ public class Calculate {
 		double discriminant = Calculate.discriminant(valueOneDouble, valueTwoDouble, valueThreeDouble);
 			if (discriminant < 0) {
 				return ("no real roots"); }
-		double quadFormAddition = ((-1 * valueTwoDouble) + (Calculate.sqrt(discriminant))/(2 * valueThreeDouble));
-		double quadFormSubtraction = ((-1 * valueTwoDouble) - (Calculate.sqrt(discriminant))/(2 * valueThreeDouble));
+		double quadFormAddition = ((-1 * valueTwoDouble) + (Calculate.sqrt(discriminant))/(2 * valueOneDouble));
+		double quadFormSubtraction = ((-1 * valueTwoDouble) - (Calculate.sqrt(discriminant))/(2 * valueOneDouble));
 		quadFormAddition = Calculate.round2(quadFormAddition);
 		quadFormSubtraction = Calculate.round2(quadFormSubtraction);
 			if (quadFormAddition == quadFormSubtraction) {
