@@ -9,7 +9,7 @@ public class Calculate {
 		return square; 
 	}		
 	/* A call to "square" returns the square of the value passed. 
-	 * The method acccepts an integer and returns an integer.
+	 * The method accepts an integer and returns an integer.
 	 */
 
 	public static int cube (int numberCubed) {
