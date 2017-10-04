@@ -1,9 +1,10 @@
 /* 
- * Shao Ching Kao
+ * Shao Ching Kao (Second Programmer is Reina)
  * APCS first period
  * Ms. Dreyer
  * Storage and testing area for Processing Numbers
  */
+
 import java.util.*;
 public class ProcessingNumbers {
 	public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class ProcessingNumbers {
 			int number = console.nextInt();
 			if (number > max) {
 				max = number; }
-			if (number < min) {
+			if (number <min) {
 				min = number; }
 			if (number % 2 == 0) {
 			evenSum += number; }
