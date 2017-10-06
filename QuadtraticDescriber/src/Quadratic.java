@@ -3,11 +3,7 @@
  * Quadratic will be responsible for all the for all calculation
  */
 public class Quadratic {
-	public static void quadrDescriber (double a, double b, double c) {
-		// gives the equation of the quadratic
-		System.out.println("Description of the graph of :");
-		System.out.println("y = " + a + "x^2 + " + b + "x + " + c);
-		System.out.println(" ");
+	public static String quadrDescriber (double a, double b, double c) {
 		
 		//determines if the quadratic opens upwards or downwards
 		if (a > 0) {

@@ -11,7 +11,7 @@ public class ProcessingNumbers {
 		Scanner console = new Scanner (System.in);
 		System.out.println("How many numbers are you going to input?");
 		int quantity = console.nextInt();
-		System.out.print ("Please enter your integers: ");
+		System.out.println ("Please enter your integers: ");
 		int max = console.nextInt ();
 		int min = max;
 		int evenSum = 0;
