@@ -5,11 +5,14 @@
 public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
 		
+		String description = "Descriptopn of the graph of: \ny = " + a + " x^2 + " + b + " x + " + c;
+		
 		//determines if the quadratic opens upwards or downwards
+		String concavity = "Opens: ";
 		if (a > 0) {
-			System.out.println("Opens: Up"); }
+			concavity += "Up \n"; }
 		else {
-			System.out.println("Opens: Down"); }
+			concavity += "Down \n";  }
 		
 		//determines the axis of symmetry of the quadratic
 		System.out.println ("Axis of Symmetry: " + round2(-b / (2 * a)));

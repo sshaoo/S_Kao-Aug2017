@@ -12,18 +12,24 @@ public class QuadraticClient {
 		// greets the users
 		System.out.println ("Welcome to the Quadratic Describer");
 		System.out.println ("Provide values for coefficients a, b and c \n");
+		do {
+		// accepts values 
+		System.out.print("a: ");
+		double a = userInput.nextDouble();
+		System.out.print("b: ");
+		double b = userInput.nextDouble();
+		System.out.print("c: ");
+		double c = userInput.nextDouble();
 		
-		int a = 0;
-		int b = 0;
-		int c = 0;
+		// goes through the process of finding the quadratic 
+		String process = Quadratic.quadrDescriber(a, b, c);
+		System.out.println(process);
+		System.out.println ("Do you want to keep going? (Type \"quit\" to end)"); }
+		while (!(userInput.next().charAt(0) == "q"));
+			
+		}
 		
-		System.out.print(("a: "));
-		double quantity = userInput.nextInt();
 		
-		// gives the equation of the quadratic
-				System.out.println("Description of the graph of :");
-				System.out.println("y = " + a + "x^2 + " + b + "x + " + c);
-				System.out.println(" ");
 		
 		
 	
