@@ -7,36 +7,28 @@
 import java.util.*;
 public class QuadraticClient {
 	public static void main(String[] args) {
-		Scanner userInput = new Scanner (System.in);
+		Scanner console = new Scanner (System.in);
 		
 		// greets the users
 		System.out.println ("Welcome to the Quadratic Describer");
 		System.out.println ("Provide values for coefficients a, b and c \n");
-		do {
-		// accepts values 
-		System.out.print("a: ");
-		double a = userInput.nextDouble();
-		System.out.print("b: ");
-		double b = userInput.nextDouble();
-		System.out.print("c: ");
-		double c = userInput.nextDouble();
+		boolean done = true;
+		while (!done == false) {
+			// accepts values 
+			System.out.print("a: ");
+			double a = console.nextDouble();
+			System.out.print("b: ");
+			double b = console.nextDouble();
+			System.out.print("c: ");
+			double c = console.nextDouble();
+			System.out.println(" ");
 		
-		// goes through the process of finding the quadratic 
-		String process = Quadratic.quadrDescriber(a, b, c);
-		System.out.println(process);
-		System.out.println ("Do you want to keep going? (Type \"quit\" to end)"); }
-		while (!(userInput.next().charAt(0) == "q"));
-			
+			// goes through the process of finding the quadratic 
+			String process = Quadratic.quadrDescriber(a, b, c);
+			System.out.println(process);
+			System.out.println ("Do you want to keep going? (Type \"quit\" to end)");
+			if (console.next().charAt(0) == 'q') {
+			done = false; }
 		}
-		
-		
-		
-		
-	
-		
-		
-		
-
 	}
-
 }

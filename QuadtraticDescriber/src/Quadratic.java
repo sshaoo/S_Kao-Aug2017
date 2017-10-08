@@ -5,26 +5,29 @@
 public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
 		
-		String description = "Descriptopn of the graph of: \ny = " + a + " x^2 + " + b + " x + " + c;
+		String description = "Description of the graph of: \ny = " + a + " x^2 + " + b + " x + " + c + "\n";
 		
 		//determines if the quadratic opens upwards or downwards
-		String concavity = "Opens: ";
+		String concavity = "\nOpens: ";
 		if (a > 0) {
 			concavity += "Up \n"; }
 		else {
 			concavity += "Down \n";  }
 		
 		//determines the axis of symmetry of the quadratic
-		System.out.println ("Axis of Symmetry: " + round2(-b / (2 * a)));
+		String axisOfSymmetry = "Axis of Symmetry: " + round2(-b / (2 * a)) + "\n";
+		
 		
 		//determines the vertex of the quadratic
-		System.out.println ("Vertex: " + vertex (a, b, c));
-		
+		String vertex = "Vertex: " + vertex (a, b, c) + "\n";
+				
 		//determines the x-intercepts of the quadratic
-		System.out.println ("X-intercepts(s): " + quadForm (a, b, c));
+		String xIntercept = "X-intercepts(s): " + quadForm (a, b, c) + "\n";
 		
 		//determines the y intercept 
-		System.out.println ("Y-intercepts: " + c);
+		String yIntercept = "Y-intercepts: " + c + "\n";
+		
+		return description + concavity + axisOfSymmetry + vertex + xIntercept + yIntercept;
 	}
 		public static double absValue (double value) {
 			if (value < 0) {
@@ -98,7 +101,7 @@ public class Quadratic {
 		public static String quadForm (double valueOne, double valueTwo, double valueThree) {
 			double discriminant = discriminant(valueOne, valueTwo, valueThree);
 				if (discriminant < 0) {
-					return ("no real roots"); }
+					return ("none"); }
 			double quadFormAddition = ((-1 * valueTwo) + (sqrt(discriminant))/(2 * valueOne));
 			double quadFormSubtraction = ((-1 * valueTwo) - (sqrt(discriminant))/(2 * valueOne));
 			quadFormAddition = round2(quadFormAddition);
