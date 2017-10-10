@@ -15,8 +15,7 @@ public class Quadratic {
 			concavity += "Down \n";  }
 		
 		//determines the axis of symmetry of the quadratic
-		String axisOfSymmetry = "Axis of Symmetry: " + round2(-b / (2 * a)) + "\n";
-		
+		String aOS = "Axis of Symmetry: " + round2(-b / (2 * a)) + "\n";
 		
 		//determines the vertex of the quadratic
 		String vertex = "Vertex: " + vertex (a, b, c) + "\n";
@@ -25,9 +24,9 @@ public class Quadratic {
 		String xIntercept = "X-intercepts(s): " + quadForm (a, b, c) + "\n";
 		
 		//determines the y intercept 
-		String yIntercept = "Y-intercepts: " + c + "\n";
+		String yIntercept = "Y-intercept: " + c + "\n";
 		
-		return description + concavity + axisOfSymmetry + vertex + xIntercept + yIntercept;
+		return description + concavity + aOS + vertex + xIntercept + yIntercept;
 	}
 		public static double absValue (double value) {
 			if (value < 0) {
@@ -120,4 +119,3 @@ public class Quadratic {
 		 * To receive full credit, the method should call multiple methods that you've already written in for this library.
 		 */
 }
-

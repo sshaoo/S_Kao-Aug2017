@@ -11,9 +11,10 @@ public class QuadraticClient {
 		
 		// greets the users
 		System.out.println ("Welcome to the Quadratic Describer");
-		System.out.println ("Provide values for coefficients a, b and c \n");
-		boolean done = true;
-		while (!done == false) {
+		System.out.println ("Provide values for coefficients a, b, and c \n");
+		boolean done = false;
+		while (!done == true) {
+			
 			// accepts values 
 			System.out.print("a: ");
 			double a = console.nextDouble();
@@ -26,9 +27,11 @@ public class QuadraticClient {
 			// goes through the process of finding the quadratic 
 			String process = Quadratic.quadrDescriber(a, b, c);
 			System.out.println(process);
+			
+			// asks the user if they want to still use the method
 			System.out.println ("Do you want to keep going? (Type \"quit\" to end)");
 			if (console.next().charAt(0) == 'q') {
-			done = false; }
+			done = true; }
 		}
 	}
 }
