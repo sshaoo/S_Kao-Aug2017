@@ -25,8 +25,7 @@ public class QuadraticClient {
 			System.out.println(" ");
 		
 			// goes through the process of finding the quadratic 
-			String process = Quadratic.quadrDescriber(a, b, c);
-			System.out.println(process);
+			System.out.println(Quadratic.quadrDescriber(a, b, c));
 			
 			// asks the user if they want to still use the method
 			System.out.println ("Do you want to keep going? (Type \"quit\" to end)");
