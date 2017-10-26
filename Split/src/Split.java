@@ -5,9 +5,10 @@
  * Split class Assignment
  */
 
+import java.util.Arrays;
 public class Split {
-
-public static void main(String[] args) {
+	public static void main (String [] args) {
+		
 //String.split();
 //It's a method that acts on a string, <StringName>.split(<String sp>);
 //Where sp is the string where the string splits
@@ -17,6 +18,8 @@ public static void main(String[] args) {
 // Example 2: "I really like really red apples"split("really")
 //	it will split at the word "really" and return an array of ["I "," like "," red apples!"]
 
+	
+		
 //play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
 
 
