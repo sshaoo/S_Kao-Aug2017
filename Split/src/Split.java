@@ -35,7 +35,7 @@ public class Split {
 		String [] sentenceThreeArray = sentenceThree.split("really");
 		System.out.println (Arrays.toString(sentenceThreeArray));
 		
-		String sentenceFour = "I really like apples and I wish I had more apples.";
+		String sentenceFour = "I really like apples but I wish I had more apples.";
 		String [] sentenceFourArray = sentenceFour.split(" I ");
 		System.out.println (Arrays.toString(sentenceFourArray));
 		
