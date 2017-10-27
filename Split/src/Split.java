@@ -9,8 +9,10 @@ import java.util.Arrays;
 public class Split {
 	public static void main (String [] args) {
 		System.out.println (breadSplit("applespineapplesbreadlettucetomatobaconmayohambreadcheese"));
+		System.out.println (breadSplit("applesbreadpineapplebreadlettucetomatobreadbaconbreadmayobreadcheese"));
 		System.out.println (breadSplitSpace("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
-		
+		System.out.println (breadSplit("apples bread pineapple bread lettuce tomato bread bacon bread mayo bread cheese"));
+		System.out.println (breadSplit("bread apple"));
 //String.split();
 //It's a method that acts on a string, <StringName>.split(<String sp>);
 //Where sp is the string where the string splits
@@ -28,6 +30,15 @@ public class Split {
 		String sentenceTwo = "I really like really red apples";
 		String [] sentenceTwoArray = sentenceTwo.split("really");
 		System.out.println (Arrays.toString(sentenceTwoArray)); 
+		
+		String sentenceThree = "I reallyreally like apples";
+		String [] sentenceThreeArray = sentenceThree.split("really");
+		System.out.println (Arrays.toString(sentenceThreeArray));
+		
+		String sentenceFour = "I really like apples and I wish I had more apples.";
+		String [] sentenceFourArray = sentenceFour.split(" I ");
+		System.out.println (Arrays.toString(sentenceFourArray));
+		
 	}
 
 //Your task:
@@ -61,9 +72,6 @@ public class Split {
 		public static String breadSplitSpace (String sandwich) {
 			String answer = "";
 			String[] arraySandwichSpace = sandwich.split(" ");
-			for (int i = 1; i < arraySandwichSpace.length; i++) {
-				sandwich += arraySandwichSpace[i];
-			}
 			String[] arraySandwichBread = sandwich.split ("bread");
 			if (arraySandwichBread.length <= 2) {
 				System.out.println("Not an edible sandwich."); 
