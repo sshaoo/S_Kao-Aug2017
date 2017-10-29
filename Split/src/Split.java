@@ -11,7 +11,8 @@ public class Split {
 		System.out.println (breadSplit("applespineapplesbreadlettucetomatobaconmayohambreadcheese"));
 		System.out.println (breadSplit("applesbreadpineapplebreadlettucetomatobreadbaconbreadmayobreadcheese"));
 		System.out.println (breadSplitSpace("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
-		System.out.println (breadSplit("apples bread pineapple bread lettuce tomato bread bacon bread mayo bread cheese"));
+		System.out.println (breadSplitSpace("apples bread pineapple bread lettuce tomato bread bacon bread mayo bread cheese"));
+		System.out.println (breadSplitSpace("pineapple lettuce tomato bacon cheese mayo"));
 		System.out.println (breadSplit("bread apple"));
 //String.split();
 //It's a method that acts on a string, <StringName>.split(<String sp>);
