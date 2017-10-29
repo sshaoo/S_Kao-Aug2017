@@ -10,10 +10,12 @@ public class Split {
 	public static void main (String [] args) {
 		System.out.println (breadSplit("applespineapplesbreadlettucetomatobaconmayohambreadcheese"));
 		System.out.println (breadSplit("applesbreadpineapplebreadlettucetomatobreadbaconbreadmayobreadcheese"));
+		System.out.print (breadSplit("breadapple"));
+		System.out.println (breadSplit("bread apple bread"));
 		System.out.println (breadSplitSpace("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
 		System.out.println (breadSplitSpace("apples bread pineapple bread lettuce tomato bread bacon bread mayo bread cheese"));
 		System.out.println (breadSplitSpace("pineapple lettuce tomato bacon cheese mayo"));
-		System.out.println (breadSplit("bread apple"));
+		
 //String.split();
 //It's a method that acts on a string, <StringName>.split(<String sp>);
 //Where sp is the string where the string splits
@@ -50,7 +52,8 @@ public class Split {
 
 		public static String breadSplit (String sandwich) {
 			String answer = "";
-			String[] arraySandwich = sandwich.split ("bread");
+			String sandwichInput = " " + sandwich + " "; 
+			String[] arraySandwich = sandwichInput.split ("bread");
 			if (arraySandwich.length <= 2) {
 				System.out.println("Not an edible sandwich."); 
 			}
@@ -72,8 +75,12 @@ public class Split {
 
 		public static String breadSplitSpace (String sandwich) {
 			String answer = "";
-			String[] arraySandwichSpace = sandwich.split(" ");
-			String[] arraySandwichBread = sandwich.split ("bread");
+			String sandwichInput = " " + sandwich + " "; 
+			String[] arraySandwichSpace = sandwichInput.split(" ");
+			for (int i = 0; i < arraySandwichSpace.length; i++) {
+				sandwichInput += arraySandwichSpace[i]; 
+			}
+			String[] arraySandwichBread = sandwichInput.split ("bread");
 			if (arraySandwichBread.length <= 2) {
 				System.out.println("Not an edible sandwich."); 
 			}
