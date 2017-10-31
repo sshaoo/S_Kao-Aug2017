@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class LotsOfCopies {
 	public static void main (String[] args) {
 		
-		//part 1
+		//question 1
 		int num = 7;
 		String strMain = "APCS is not fun";
 		int[] arrMain = {1, 2, 3, 4, 5}; 
@@ -19,7 +19,7 @@ public class LotsOfCopies {
 		System.out.println (strMain);
 		System.out.println (Arrays.toString(arrMain));
 		
-		//part 2
+		//question 2
 		int a = 2;
 		int b = a;
 		a = 3;
@@ -37,10 +37,10 @@ public class LotsOfCopies {
 		System.out.println(Arrays.toString(f));
 		System.out.println(Arrays.toString(e)); 
 	}
+	//part of question 1
 	public static void changeMe (int x, String str, int[] arr) {
 		x += 9;
 		str = "APCS is fun";
 		arr [2] = 7;	
-		
 	}
 }
