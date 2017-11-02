@@ -15,15 +15,15 @@ public class LotsOfCopies {
 		String strMain = "APCS is not fun";
 		int[] arrMain = {1, 2, 3, 4, 5}; 
 		changeMe(num, strMain, arrMain);
-		System.out.println (num);
-		System.out.println (strMain);
-		System.out.println (Arrays.toString(arrMain));
+		System.out.println (num); //does not change
+		System.out.println (strMain); //does not change
+		System.out.println (Arrays.toString(arrMain)); //does change
 		
 		//question 2
 		int a = 2;
 		int b = a;
 		a = 3;
-		System.out.println (a);
+		System.out.println (a); 
 		System.out.println (b);
 		String c = "first period APCS is better than second period";
 		String d = c;
@@ -41,6 +41,9 @@ public class LotsOfCopies {
 	public static void changeMe (int x, String str, int[] arr) {
 		x += 9;
 		str = "APCS is fun";
-		arr [2] = 7;	
+		for (int i = 0; i < arr.length; i++) {
+		arr [i]++;	
+		}
 	}
 }
+
