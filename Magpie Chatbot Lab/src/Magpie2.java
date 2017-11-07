@@ -55,10 +55,10 @@ public class Magpie2 {
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
-
 		if (whichResponse == 0) {
 			response = "Interesting, tell me more.";
-		} else if (whichResponse == 1) {
+		} 
+		else if (whichResponse == 1) {
 			response = "Hmmm.";
 		} else if (whichResponse == 2) {
 			response = "Do you really think so?";
