@@ -42,9 +42,8 @@ public class FracCalc {
         String operator = answerParseInput[1];
         String operandTwo = answerParseInput[2];
         return operandTwo;
-        //checkpointTwo:
         
-        
+        String[] parseOperandOne = parseOperand(operandOne);
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
