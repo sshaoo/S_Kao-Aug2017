@@ -11,13 +11,14 @@ public class FracCalc {
 
     public static void main(String[] args) {
     		Scanner console = new Scanner (System.in);
-    		String equation;
-    		while (true) {
+    		String equation = "";
+    		boolean test = false;
+    		while (!test == true) {
     			System.out.println("Type quit to end. Otherwise, enter your equation.");
     			equation = console.nextLine();
     			System.out.println(produceAnswer(equation));
     			if (equation.toLowerCase().equals("quit")) {
-    				break;
+    				test = false;
     			}
     		}
     		System.out.println(produceAnswer(equation));
@@ -43,7 +44,6 @@ public class FracCalc {
         String operandTwo = answerParseInput[2];
         return operandTwo;
         
-        String[] parseOperandOne = parseOperand(operandOne);
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -52,6 +52,8 @@ public class FracCalc {
     public static String[] parseInput (String input) {
     		String[] inputSplit = input.split(" ");
     		return inputSplit;
+    		
+    		
     }
     
     public static int[] parseOperand (String operand) {
