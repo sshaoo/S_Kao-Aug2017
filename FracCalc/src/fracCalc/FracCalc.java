@@ -37,33 +37,45 @@ public class FracCalc {
     // TODO: Implement this function to produce the solution to the input
     
     public static String produceAnswer (String userInput) {
-		//checkpointOne:
+		// checkpointOne: This section puts each part of the input as a variable and returns the latter part of the equation
     		String[] answerParseInput = parseInput(userInput);
         String operandOne = answerParseInput[0];
         String operator = answerParseInput[1];
         String operandTwo = answerParseInput[2];
+        // checkpointTwo: This section calls on parseOperand and figures out the whole numbers, numerators and denominator of the two operand of the equation.
+        int[] parseOperandTwo = parseOperand(operandTwo);
+        
         return operandTwo;
         
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
     
-    // checkpointOne:
+    // checkpointOne: This method splits the input by spaces
     public static String[] parseInput (String input) {
     		String[] inputSplit = input.split(" ");
     		return inputSplit;
-    		
-    		
     }
     
+    // checkpointTwo: This method looks at the equation and determines which number is the whole number, numerator or denominator
     public static int[] parseOperand (String operand) {
-    		String[] partsSplit = operand.split("_");
-    		String[] fractionSplit = partsSplit[1].split("/");
-    		String[] operandSplit = {partsSplit[0], fractionSplit[0], fractionSplit[1]};
-    		int[] operandSplitInt = new int [3];
-    		for (int i = 0; i < operandSplitInt.length; i++) {
-    			operandSplitInt[i] = Integer.parseInt(operandSplit[i]);
+    		String[] operandSplit = operand.split("_");
+    		int[] equationSplit = new int[3];
+    		String[] fractionSplit = null;
+    		if (operandSplit.length == 1) {
+    			equationSplit[0] = 0;
+    			fractionSplit = operand.split("/");
     		}
-    		return operandSplitInt;
+    		else if (operandSplit.length > 1) {
+    			equationSplit[0] = Integer.parseInt(operandSplit[0]); 
+    			fractionSplit = operandSplit[1].split("/");
+    		}
+    		if (operandSplit.length == 1 && fractionSplit.length == 1) {
+    			equationSplit[2] = 1;
+    		}
+    		for (int i = 0; i < fractionSplit.length; i++) {
+    			equationSplit[i+1] = Integer.parseInt(fractionSplit[i]);
+    		}
+    		return equationSplit;
     }
 }
