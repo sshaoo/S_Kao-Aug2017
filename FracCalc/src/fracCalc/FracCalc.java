@@ -43,10 +43,10 @@ public class FracCalc {
         String operator = answerParseInput[1];
         String operandTwo = answerParseInput[2];
         // checkpointTwo: This section calls on parseOperand and figures out the whole numbers, numerators and denominator of the two operand of the equation.
+        int[] parseOperandOne = parseOperand(operandOne);
         int[] parseOperandTwo = parseOperand(operandTwo);
-        
-        return operandTwo;
-        
+        String[] arrayOfWords = {"whole:"," numerator:"," denominator:"};
+        return arrayOfWords[0] + parseOperandTwo[0] + arrayOfWords[1] + parseOperandTwo[1] + arrayOfWords[2] + parseOperandTwo[2];
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -59,22 +59,23 @@ public class FracCalc {
     
     // checkpointTwo: This method looks at the equation and determines which number is the whole number, numerator or denominator
     public static int[] parseOperand (String operand) {
-    		String[] operandSplit = operand.split("_");
     		int[] equationSplit = new int[3];
     		String[] fractionSplit = null;
+    		String[] operandSplit = operand.split("_");
     		if (operandSplit.length == 1) {
-    			equationSplit[0] = 0;
     			fractionSplit = operand.split("/");
     		}
     		else if (operandSplit.length > 1) {
     			equationSplit[0] = Integer.parseInt(operandSplit[0]); 
     			fractionSplit = operandSplit[1].split("/");
     		}
-    		if (operandSplit.length == 1 && fractionSplit.length == 1) {
-    			equationSplit[2] = 1;
-    		}
     		for (int i = 0; i < fractionSplit.length; i++) {
     			equationSplit[i+1] = Integer.parseInt(fractionSplit[i]);
+    		}
+    		if (operandSplit.length == 1 && fractionSplit.length == 1) {
+    			equationSplit[0] = Integer.parseInt(operandSplit[0]); 
+    			equationSplit[1] = 0;
+    			equationSplit[2] = 1;
     		}
     		return equationSplit;
     }
