@@ -277,6 +277,3 @@ public class Calculate {
 	 * To receive full credit, the method should call multiple methods that you've already written in for this library.
 	 */
 }
-
-
-
