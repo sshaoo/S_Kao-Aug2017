@@ -37,27 +37,41 @@ public class FracCalc {
     // TODO: Implement this function to produce the solution to the input
     
     public static String produceAnswer (String userInput) {
-		// checkpointOne: This section puts each part of the input as a variable and returns the latter part of the equation
+    	
     		String[] answerParseInput = parseInput(userInput);
         String operandOne = answerParseInput[0];
         String operator = answerParseInput[1];
         String operandTwo = answerParseInput[2];
-        // checkpointTwo: This section calls on parseOperand and figures out the whole numbers, numerators and denominator of the two operand of the equation.
         int[] parseOperandOne = parseOperand(operandOne);
         int[] parseOperandTwo = parseOperand(operandTwo);
-        String[] arrayOfWords = {"whole:"," numerator:"," denominator:"};
-        return arrayOfWords[0] + parseOperandTwo[0] + arrayOfWords[1] + parseOperandTwo[1] + arrayOfWords[2] + parseOperandTwo[2];
+        int[] improperFracOperandOne = toImproperFrac(parseOperandOne);
+		int[] improperFracOperandTwo = toImproperFrac(parseOperandTwo);
+		int[] result = commonDenominator(improperFracOperandOne, improperFracOperandTwo);
+		if (operator.equals("+")){
+			return addition(result);
+		}
+		else if (operator.equals("-")){
+			return subtraction(result);
+		}
+		else if (operator.equals("*")){
+			return multiplication(result);
+		}
+		else if (operator.equals("/")){
+			return division(result);
+		}
+		else {
+			String error = "Error";
+			return error;
+		}
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
     
-    // checkpointOne: This method splits the input by spaces
     public static String[] parseInput (String input) {
     		String[] inputSplit = input.split(" ");
     		return inputSplit;
     }
     
-    // checkpointTwo: This method looks at the equation and determines which number is the whole number, numerator or denominator
     public static int[] parseOperand (String operand) {
     		int[] equationSplit = new int[3];
     		String[] fractionSplit = null;
@@ -79,4 +93,47 @@ public class FracCalc {
     		}
     		return equationSplit;
     }
+    
+    public static int[] toImproperFrac(int[] operand){
+		operand[1] = operand[2] * operand[0] + operand[1];
+		int[] improperFraction = {operand[1], operand[2]};
+		return improperFraction;
+    }
+    
+    public static int[] commonDenominator(int[] operandOne, int[] operandTwo){
+		int leftNumerator = operandOne[0] * operandTwo[1];
+		int rightNumerator = operandTwo[0] * operandOne[1];
+		int denominator = operandOne[1] * operandTwo[1];
+		int[] twoCommonFractions = {leftNumerator, rightNumerator, denominator};
+		return twoCommonFractions;
+    }
+    
+    public static String addition(int[] expression){
+		int intNumerator = expression[0] + expression[1];
+		String stringNumerator = Integer.toString(intNumerator);
+		String answerString = stringNumerator + "/" + expression[2];
+		return answerString;
+	}
+	public static String subtraction(int[] expression){
+		int intNumerator = expression[0] - expression[1];
+		String stringNumerator = Integer.toString(intNumerator);
+		String answerString = stringNumerator + "/" + expression[2];
+		return answerString;
+	}
+	public static String multiplication(int[] expression){
+		int intNumerator = expression[0] * expression[1];
+		int intDenominator = expression[2] * expression[2];
+		String stringNumerator = Integer.toString(intNumerator);
+		String stringDenominator = Integer.toString(intDenominator);
+		String answerString = stringNumerator + "/" + stringDenominator;
+		return answerString;
+	}
+	public static String division(int[] expression){
+		int intNumerator = expression[0] * expression[2];
+		int intDenominator = expression[1] * expression[2];
+		String stringNumerator = Integer.toString(intNumerator);
+		String stringDenominator = Integer.toString(intDenominator);
+		String answerString = stringNumerator + "/" + stringDenominator;
+		return answerString;
+	}
 }
