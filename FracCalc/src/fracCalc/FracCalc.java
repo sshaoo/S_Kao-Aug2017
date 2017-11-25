@@ -18,7 +18,6 @@ public class FracCalc {
     			System.out.println("Type \"quit\" with no capital letters to end. Otherwise, enter your equation.");
     			equation = console.nextLine();
     			}
-    		console.close();
     }
     		
     // TODO: Read the input from the user and call produceAnswer with an equation
