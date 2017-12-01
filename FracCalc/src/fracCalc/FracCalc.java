@@ -63,6 +63,7 @@ public class FracCalc {
     
     // TODO: Fill in the space below with any helper methods that you think you will need
     
+    // Splits up the fraction into whole number, numerator, and denominator
     public static int[] parseOperand (String operand) {
     		int[] equationSplit = new int[3];
     		String[] fractionSplit = null;
@@ -85,6 +86,7 @@ public class FracCalc {
     		return equationSplit;
     }
     
+    // switches the mixed fraction into an improper function
     public static int[] toImproperFrac(int[] operand) {
     		if (operand[0] < 0) {
     			operand[1] *= -1;
@@ -94,6 +96,7 @@ public class FracCalc {
 		return improperFraction;
     }
     
+    // finds the common denominator of two denominators 
     public static int[] commonDenominator(int[] operandOne, int[] operandTwo) {
 		int leftNumerator = operandOne[0] * operandTwo[1];
 		int rightNumerator = operandTwo[0] * operandOne[1];
@@ -102,18 +105,21 @@ public class FracCalc {
 		return twoCommonFractions;
     }
     
+    // adds two fractions into one if called upon
     public static String addition(int[] expression) {
 		int intNumerator = expression[0] + expression[1];
 		String stringNumerator = Integer.toString(intNumerator);
 		String answerString = stringNumerator + "/" + expression[2];
 		return answerString;
 	}
+    // subtracts two fractions into one if called upon
 	public static String subtraction(int[] expression) {
 		int intNumerator = expression[0] - expression[1];
 		String stringNumerator = Integer.toString(intNumerator);
 		String answerString = stringNumerator + "/" + expression[2];
 		return answerString;
 	}
+	// multiplies two fraction into one if called upon
 	public static String multiplication(int[] expression) {
 		int intNumerator = expression[0] * expression[1];
 		int intDenominator = expression[2] * expression[2];
@@ -122,6 +128,7 @@ public class FracCalc {
 		String answerString = stringNumerator + "/" + stringDenominator;
 		return answerString;
 	}
+	// divides two fraction into one if called upon
 	public static String division(int[] expression) {
 		int intNumerator = expression[0] * expression[2];
 		int intDenominator = expression[1] * expression[2];
