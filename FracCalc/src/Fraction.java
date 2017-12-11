@@ -31,7 +31,7 @@ public class Fraction {
 		if (operandSplit.length == 1 && fractionSplit.length == 1) {
 			equationSplit[0] = Integer.parseInt(operandSplit[0]); 
 			equationSplit[1] = 0;
-			equationSplit[2] = 1;  
+			equationSplit[2] = 1;   
 		}
 	}
 	
