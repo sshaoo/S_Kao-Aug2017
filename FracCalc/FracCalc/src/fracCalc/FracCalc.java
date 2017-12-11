@@ -1,11 +1,19 @@
 package fracCalc;
 
+import java.util.Scanner;
+
 public class FracCalc {
 
-    public static void main(String[] args) 
-    {
-        // TODO: Read the input from the user and call produceAnswer with an equation
-
+    public static void main(String[] args) {
+    	Scanner console = new Scanner (System.in);
+		System.out.println("Please enter your equation.");
+		String equation = console.nextLine();
+		while (!equation.equals("quit")) {
+			System.out.println(produceAnswer(equation));
+			System.out.println("Type \"quit\" with no capital letters to end. Otherwise, enter your equation.");
+			equation = console.nextLine();
+			}
+}
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -18,11 +26,9 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input)
     { 
-        // TODO: Implement this function to produce the solution to the input
-        
-        return "";
-    }
-
-    // TODO: Fill in the space below with any helper methods that you think you will need
-    
+        String[] inputSplit = input.split(" ");
+        Fraction operandOne = new Fraction(splitInput[0]);
+        Fraction operandTwo = new Fraction(splitInput[2]);
+        return operandTwo.toString();
+    } 
 }
