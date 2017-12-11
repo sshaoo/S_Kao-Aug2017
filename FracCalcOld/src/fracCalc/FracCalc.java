@@ -34,7 +34,7 @@ public class FracCalc {
     
     public static String produceAnswer (String userInput) {
     	
-    		String[] inputSplit = userInput.split(" ");
+    	String[] inputSplit = userInput.split(" ");
         String operandOne = inputSplit[0];
         String operator = inputSplit[1];
         String operandTwo = inputSplit[2];
