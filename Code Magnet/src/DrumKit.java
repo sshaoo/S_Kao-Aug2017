@@ -3,6 +3,7 @@
  * November 7th, 2017
  * This is where the work for Drum Kit will be stored
  */
+
 public class DrumKit {
 	boolean topHat = true;
 	boolean snare = true;
