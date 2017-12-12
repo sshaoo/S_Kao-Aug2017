@@ -1,7 +1,7 @@
 /* Shao Ching Kao
  * Ms.Dreyer's first period AP computer science
  * November 7th, 2017
- * This is where the work for frac calc will be stored
+ * This is where the work for frac calc objects will be stored
  */
 
 import java.util.*;
@@ -14,6 +14,7 @@ public class Fraction {
 	private int whole;
 	private String sign;
 	
+	//constructor
 	public Fraction (String operand) {
 		int[] equationSplit = new int[3];
 		String[] fractionSplit = null;
@@ -55,4 +56,8 @@ public class Fraction {
 		}
 		String toImproperFrac = (((denominator * wholeNumber) + numerator) + "/" + denominator);
 	}
+	
+	private void toInt (String str) {
+		int parsedStr = Integer.parseInt(str);
+	}	
 }
