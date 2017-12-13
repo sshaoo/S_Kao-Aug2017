@@ -37,17 +37,41 @@ public class Fraction {
 	}
 	
 	public String toString() {
-		return "whole: " + whole + ", numerator: " + numerator + ", denominator: " + denominator;
-	}
-	
-	// instance methods
-	public void toMixedNum (int numerator, int denominator) {
 		if (denominator == 0) {
 			throw new IllegalArgumentException ("Denominator cannot be zero");
 		}
 		int x = (numerator/denominator);
 		int y = (numerator%denominator);
-		String toMixedNum = x + ("_" + y + "/" + denominator);
+		String toMixedNum = x + ("_" + y + "/" + denominator); 
+		return toMixedNum;
+	}
+	
+	 public void addition(int[] expression) {
+		int intNumerator = expression[0] + expression[1];
+		String stringNumerator = Integer.toString(intNumerator);
+		String answerString = stringNumerator + "/" + expression[2];
+	 }
+		
+	public void subtraction(int[] expression) {
+		int intNumerator = expression[0] - expression[1];
+		String stringNumerator = Integer.toString(intNumerator);
+		String answerString = stringNumerator + "/" + expression[2];
+	}			
+	
+	public void multiplication(int[] expression) {
+		int intNumerator = expression[0] * expression[1];
+		int intDenominator = expression[2] * expression[2];
+		String stringNumerator = Integer.toString(intNumerator);
+		String stringDenominator = Integer.toString(intDenominator);
+		String answerString = stringNumerator + "/" + stringDenominator;
+	}
+	
+	public void division(int[] expression) {
+		int intNumerator = expression[0] * expression[2];
+		int intDenominator = expression[1] * expression[2];
+		String stringNumerator = Integer.toString(intNumerator);
+		String stringDenominator = Integer.toString(intDenominator);
+		String answerString = stringNumerator + "/" + stringDenominator;
 	}
 	
 	public void toImproperFrac (int wholeNumber, int numerator, int denominator) {
