@@ -25,27 +25,28 @@ public class Fraction {
 	}
 	
 	private void parseOperand (String operand) {
-		String[] operandSplit = operand.split("_");
-		if (operandSplit.length == 2) {
-				String[] fractionSplit = operandSplit[1].split("/");
-				whole = toInt(operandSplit[0]);
-				numerator = toInt(fractionSplit[0]);
-				denominator = toInt(fractionSplit[1]);
-		}
-		else {
-				String[] fractionSplit = operandSplit[0].split("/");
-				if (fractionSplit.length == 2) {
-					whole = 0;
-					numerator = toInt(fractionSplit[0]);
-					denominator = toInt(fractionSplit[1]);
-				}
-				else {
-					whole = toInt(operandSplit[0]);
-					numerator = 0;
-					denominator = 1;
-				}
-			}
-		}
+    		int[] equationSplit = new int[3];
+    		String[] fractionSplit = null;
+    		String[] operandSplit = operand.split("_");
+    		if (operandSplit.length == 1) {
+    			fractionSplit = operand.split("/");
+    		}
+    		else if (operandSplit.length > 1) {
+    			equationSplit[0] = Integer.parseInt(operandSplit[0]); 
+    			fractionSplit = operandSplit[1].split("/");
+    		}
+    		for (int i = 0; i < fractionSplit.length; i++) {
+    			equationSplit[i+1] = Integer.parseInt(fractionSplit[i]);
+    		}
+    		this.whole = equationSplit[0];
+    		this.numerator = equationSplit[1];
+    		this.denominator = equationSplit[2];
+    		if (operandSplit.length == 1 && fractionSplit.length == 1) {
+    			whole = Integer.parseInt(operandSplit[0]); 
+    			numerator = 0;
+    			denominator = 1;
+    		}
+    }
 	
 	public String toString() {
 		String endResult = "";
@@ -98,5 +99,12 @@ public class Fraction {
 		}
 		whole = 0;
 		numerator += (denominator * whole);
+		
+	public void commonDenominator(int[] operandOne, int[] operandTwo) {
+		int leftNumerator = operandOne[0] * operandTwo[1];
+		int rightNumerator = operandTwo[0] * operandOne[1];
+		int denominator = operandOne[1] * operandTwo[1];
+		int[] twoCommonFractions = {leftNumerator, rightNumerator, denominator};
+		    }
 	}	
 }
