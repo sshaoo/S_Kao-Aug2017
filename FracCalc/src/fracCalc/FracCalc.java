@@ -21,7 +21,6 @@ public class FracCalc {
     }
     
     public static String produceAnswer (String userInput) {
-    	
     		String[] inputSplit = userInput.split(" ");
         Fraction operandOne =  new Fraction(inputSplit[0]);
         String operator = inputSplit[1];
