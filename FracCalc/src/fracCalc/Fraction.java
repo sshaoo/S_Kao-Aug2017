@@ -57,7 +57,16 @@ public class Fraction {
 		int answer = Integer.parseInt(input);
 		return answer;
 	}
-	
+	 
+	public void toImproperFrac() {
+		if (whole < 0) {
+			numerator *= -1;
+		}
+		numerator = (denominator * whole) + numerator;
+		whole = 0;
+		int[] improperFraction = {numerator, denominator};
+	}
+		
 	//getters
 	public int getWhole() {
 		return whole;
@@ -82,14 +91,5 @@ public class Fraction {
 	
 	public void setDen(int replaceDen) {
 		denominator = replaceDen;
-	}
-	
-    public void toImproperFrac() {
-		if (whole < 0) {
-			numerator *= -1;
-		}
-		numerator = (denominator * whole) + numerator;
-		whole = 0;
-		int[] improperFraction = {numerator, denominator};
-    }	
+	}	
 }
