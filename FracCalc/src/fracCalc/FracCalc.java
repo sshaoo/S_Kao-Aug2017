@@ -66,10 +66,10 @@ public class FracCalc {
 		return answer;
 	}
 	// divides two fraction into one if called upon
-		public static Fraction division(Fraction expressionOne, Fraction expressionTwo) {
-			Fraction answer = new Fraction();
-	    		answer.setNum(expressionOne.getNum() * expressionTwo.getDen());
-	    		answer.setDen(expressionOne.getDen() * expressionTwo.getNum()) ;
-			return answer;
+	public static Fraction division(Fraction expressionOne, Fraction expressionTwo) {
+		Fraction answer = new Fraction();
+	    	answer.setNum(expressionOne.getNum() * expressionTwo.getDen());
+	    	answer.setDen(expressionOne.getDen() * expressionTwo.getNum()) ;
+		return answer;
 	}
 }
