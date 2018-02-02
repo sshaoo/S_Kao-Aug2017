@@ -8,7 +8,7 @@ public class ThereAndBackAgain
 		
 		Hobbit frodo = new Hobbit("Frodo");
 		Hobbit sam = new Hobbit("Sam");
-		Dwarf gimli = new Dwarf("Gimli");
+		Dwarf gimli = new Dwarf("Gimli"); 
 		
 		// Create a traveling party called party1 by creating an array of Travelers 
 		// and filling it with frodo, sam, and gimli
