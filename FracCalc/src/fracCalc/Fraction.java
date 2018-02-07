@@ -49,24 +49,24 @@ public class Fraction {
     }
 	
 	public String toString() {
-		String endResult = "";
-		if (whole == 0) {
-			endResult += numerator + "/" + denominator;
-		}
-		else if (numerator == 0) {
-			endResult += whole;
-		}
-		else {
-			endResult += whole + "_" + numerator + "/" + denominator;
-		}
-		return endResult;
+		String answerString = numerator + "/" + denominator;
+		return answerString;
 	}
 	
 	private int toInt (String input) {
 		int answer = Integer.parseInt(input);
 		return answer;
 	}
-	
+	 
+	public void toImproperFrac() {
+		if (whole < 0) {
+			numerator *= -1;
+		}
+		numerator = (denominator * whole) + numerator;
+		whole = 0;
+		int[] improperFraction = {numerator, denominator};
+	}
+		
 	//getters
 	public int getWhole() {
 		return whole;
@@ -86,25 +86,10 @@ public class Fraction {
 	}
 	
 	public void setNum(int replaceNum) {
-		whole = replaceNum;
+		numerator = replaceNum;
 	}
 	
 	public void setDen(int replaceDen) {
-		whole = replaceDen;
-	}
-	
-	public void toImproperFrac() {
-		if (whole < 0) {
-			numerator *= -1;
-		}
-		whole = 0;
-		numerator += (denominator * whole);
-		
-	public void commonDenominator(int[] operandOne, int[] operandTwo) {
-		int leftNumerator = operandOne[0] * operandTwo[1];
-		int rightNumerator = operandTwo[0] * operandOne[1];
-		int denominator = operandOne[1] * operandTwo[1];
-		int[] twoCommonFractions = {leftNumerator, rightNumerator, denominator};
-		    }
+		denominator = replaceDen;
 	}	
 }

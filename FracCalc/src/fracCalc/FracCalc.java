@@ -8,7 +8,6 @@ package fracCalc;
 import java.util.*;
 
 public class FracCalc {
-
     public static void main(String[] args) {
     		Scanner console = new Scanner(System.in);
 		System.out.println("Please enter your equation.");
@@ -21,7 +20,6 @@ public class FracCalc {
     }
     
     public static String produceAnswer (String userInput) {
-    	
     		String[] inputSplit = userInput.split(" ");
         Fraction operandOne =  new Fraction(inputSplit[0]);
         String operator = inputSplit[1];
@@ -66,10 +64,10 @@ public class FracCalc {
 		return answer;
 	}
 	// divides two fraction into one if called upon
-		public static Fraction division(Fraction expressionOne, Fraction expressionTwo) {
-			Fraction answer = new Fraction();
-	    		answer.setNum(expressionOne.getNum() * expressionTwo.getDen());
-	    		answer.setDen(expressionOne.getDen() * expressionTwo.getNum()) ;
-			return answer;
+	public static Fraction division(Fraction expressionOne, Fraction expressionTwo) {
+		Fraction answer = new Fraction();
+	    	answer.setNum(expressionOne.getNum() * expressionTwo.getDen());
+	    	answer.setDen(expressionOne.getDen() * expressionTwo.getNum()) ;
+		return answer;
 	}
 }
