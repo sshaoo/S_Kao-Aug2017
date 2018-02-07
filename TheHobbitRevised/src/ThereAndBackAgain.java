@@ -1,3 +1,9 @@
+/* Shao Ching Kao
+ * Ms.Dreyer's APCS first period
+ * The Hobbit Revisited
+ * This is the client code for TheHobbitRevisited
+ */
+
 import java.util.ArrayList;
 
 public class ThereAndBackAgain 
@@ -23,7 +29,7 @@ public class ThereAndBackAgain
 		Traveler[] party1 = {frodo, sam, gimli}; 
 		for (Traveler trav: party1) {
 			trav.travel(50);
-			System.out.println(trav.getName() + "has traveled" + trav.getDistanceTraveled() + "miles");
+			System.out.println(trav.getName() + " has traveled " + trav.getDistanceTraveled() + " miles");
 		}
 		
 		System.out.println();
@@ -36,7 +42,7 @@ public class ThereAndBackAgain
 		ArrayList<Traveler> party2 = new ArrayList<Traveler>();
 		
 		// Call the createParty method and pass it party2 and the dwarfNames array.
-		createParty(party2, dwarfNames); 
+		createParty(party2, dwarfNames);  
 		
 		// Finally, call the allTravel method passing it party2 and 100 (representing
 		// the 100 miles that party2 has traveled together.  
@@ -52,9 +58,11 @@ public class ThereAndBackAgain
 		
 		Hobbit Biblo = new Hobbit ("Biblo");
 		Wizard Gandalf = new Wizard ("Gandalf", "Grey");
+		party.add(Biblo);
+		party.add(Gandalf);
 		for(String i: dwarfNames) {
-			Dwarf traveler = new Dwarf(i);
-			party.add(traveler);
+			Dwarf allDwarf = new Dwarf(i);
+			party.add(allDwarf);
 		}
 	}
 	
