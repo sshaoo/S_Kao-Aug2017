@@ -42,7 +42,7 @@ public class ThereAndBackAgain
 		ArrayList<Traveler> party2 = new ArrayList<Traveler>();
 		
 		// Call the createParty method and pass it party2 and the dwarfNames array.
-		createParty(party2, dwarfNames);  
+		createParty(party2, dwarfNames);
 		
 		// Finally, call the allTravel method passing it party2 and 100 (representing
 		// the 100 miles that party2 has traveled together.  

@@ -1,5 +1,4 @@
-public class Dwarf extends Traveler
-{
+public class Dwarf extends Traveler {
 	//Dwarves will need a constructor, but there's nothing new for them beyond
 	//  what Traveler offers.  
 	//Dwarves travel just like any other Traveler. Do they need a travel method?  
