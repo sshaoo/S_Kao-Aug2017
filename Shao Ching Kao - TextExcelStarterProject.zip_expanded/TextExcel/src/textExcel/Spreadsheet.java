@@ -1,42 +1,39 @@
+/*
+ * Shao Ching Kao
+ * Ms.Dreyer
+ * 1st Period Computer Science
+ * March 11th, 2018
+ */
 package textExcel;
 
 // Update this file with your own code.
 
-public class Spreadsheet implements Grid
-{
+public class Spreadsheet implements Grid {
+	
+		private Cell[][] arrayOfCells = new Cell[getRows()][getCols()];
+		
+	@Override
+	public String processCommand(String command) {
+		return "";
+	}
 
 	@Override
-	public String processCommand(String command)
-	{
-		// TODO Auto-generated method stub
+	public int getRows() {
+		return 20;
+	}
+
+	@Override
+	public int getCols() {
+		return 12;
+	}
+
+	@Override
+	public Cell getCell(Location loc) {
 		return null;
 	}
 
 	@Override
-	public int getRows()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getCols()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Cell getCell(Location loc)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getGridText()
-	{
-		// TODO Auto-generated method stub
+	public String getGridText() {
 		return null;
 	}
 
