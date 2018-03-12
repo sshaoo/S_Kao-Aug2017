@@ -10,7 +10,7 @@ package textExcel;
 
 public class Spreadsheet implements Grid {
 	
-		private Cell[][] arrayOfCells = new Cell[getRows()][getCols()];
+		private Cell[][] arrayOfCells = new Cell[20][12];
 		
 	@Override
 	public String processCommand(String command) {
