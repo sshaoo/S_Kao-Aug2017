@@ -19,12 +19,12 @@ public class TextExcel {
 	    System.out.println("Please Enter Command.");
 	    boolean done = false;
 	    while (done == true) {
-	    		String input = console.nextLine();
-	    		System.out.println(sheet.processCommand(input));
-	    		if (input.toLowerCase().equals("quit")) {
-	    			System.out.println("program exited");
-	    			done = true;
-	    		}
+	    	String input = console.nextLine();
+	    	System.out.println(sheet.processCommand(input));
+	    	if (input.equalsIgnoreCase("quit")) {
+	    		System.out.println("program exited");
+	    		done = true;
+	    	}
 	    }
 	}
 }

@@ -10,7 +10,9 @@ package textExcel;
 
 public class Spreadsheet implements Grid {
 	
-		private Cell[][] arrayOfCells = new Cell[20][12];
+	public Spreadsheet() {
+		Cell[][] arrayOfCells = new Cell[20][12];
+	}
 		
 	@Override
 	public String processCommand(String command) {
@@ -26,7 +28,7 @@ public class Spreadsheet implements Grid {
 	public int getCols() {
 		return 12;
 	}
-
+ 
 	@Override
 	public Cell getCell(Location loc) {
 		return null;
@@ -36,5 +38,4 @@ public class Spreadsheet implements Grid {
 	public String getGridText() {
 		return null;
 	}
-
 }
