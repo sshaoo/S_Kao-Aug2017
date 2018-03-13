@@ -14,8 +14,10 @@ public class SpreadsheetLocation implements Location {
 	private int column;
 	
 	public SpreadsheetLocation(String cellName) {
-    		row = Integer.parseInt(cellName.substring(1)) - 1;
-    		column = Character.toUpperCase(cellName.charAt(0)) - 'A';
+		String number = cellName.substring(1);
+		char letter = cellName.charAt(0);
+    		row = Integer.parseInt(number) - 1;
+    		column = Character.toUpperCase(letter) - 'A'; 
     }
 
     @Override
@@ -27,6 +29,4 @@ public class SpreadsheetLocation implements Location {
     public int getCol() {
         return column;
     }
-    
-   
 }
