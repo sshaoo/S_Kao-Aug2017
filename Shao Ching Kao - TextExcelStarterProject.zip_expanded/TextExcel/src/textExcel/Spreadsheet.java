@@ -10,8 +10,10 @@ package textExcel;
 
 public class Spreadsheet implements Grid {
 	
+	private Cell[][] arrayOfCells;
+	
 	public Spreadsheet() {
-		Cell[][] arrayOfCells = new Cell[20][12];
+		arrayOfCells = new Cell[20][12];
 	}
 		
 	@Override
@@ -31,7 +33,7 @@ public class Spreadsheet implements Grid {
  
 	@Override
 	public Cell getCell(Location loc) {
-		return null;
+		return arrayOfCells[loc.getCol()][loc.getRow()];
 	}
 
 	@Override
