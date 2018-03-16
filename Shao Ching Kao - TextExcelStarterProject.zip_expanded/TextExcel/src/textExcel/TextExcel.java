@@ -18,7 +18,7 @@ public class TextExcel {
 	    Scanner console = new Scanner(System.in);
 	    System.out.println("Please Enter Command.");
 	    boolean done = false;
-	    while (done == true) {
+	    while (!done == true) {
 	    	String input = console.nextLine();
 	    	System.out.println(sheet.processCommand(input));
 	    	if (input.equalsIgnoreCase("quit")) {
