@@ -16,7 +16,7 @@ public class Spreadsheet implements Grid {
 		arrayOfCells = new Cell[getRows()][getCols()];
 	}
 		
-	@Override
+	@Override 
 	public String processCommand(String command) {
 		String[] commandSplit = command.split(" ", 3);
 		if (commandSplit[0].length() == 0) {
