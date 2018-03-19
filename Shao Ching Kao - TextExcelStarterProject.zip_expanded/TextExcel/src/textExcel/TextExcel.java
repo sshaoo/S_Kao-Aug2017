@@ -16,6 +16,8 @@ public class TextExcel {
 	    Scanner console = new Scanner(System.in);
 	    System.out.println("Please enter command. To quit, type \"quit\".");
 	    boolean done = false;
+	    //TestsALL.Helper th = new TestsALL.Helper();
+	    //System.out.println(th.getText());
 	    while (!done == true) {
 	    		String input = console.nextLine();
 	    		System.out.println(sheet.processCommand(input));

@@ -16,9 +16,8 @@ public class Spreadsheet implements Grid {
 		arrayOfCells = new Cell[20][12];
 	}
 		
-	@Override
 	public String processCommand(String command) {
-		String[] commandSplit = command.split(" ", 3);
+		String[] commandSplit = command.split(" ");
 		if (commandSplit[0].length() == 0) {
 			return "";
 		}
@@ -43,22 +42,18 @@ public class Spreadsheet implements Grid {
 		return getGridText();
 	}
 
-	@Override
 	public int getRows() {
 		return 20;
 	}
 
-	@Override
 	public int getCols() {
 		return 12;
 	}
  
-	@Override
 	public Cell getCell(Location loc) {
 		return arrayOfCells[loc.getCol()][loc.getRow()];
 	}
 
-	@Override
 	public String getGridText() {
 		String spreadsheet = "   ";
 		for(int i = 0; i < getCols(); i++) {

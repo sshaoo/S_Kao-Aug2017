@@ -22,12 +22,10 @@ public class SpreadsheetLocation implements Location {
     		column = Character.toUpperCase(letter) - 'A'; 
     }
 
-    @Override
     public int getRow() {
         return row;
     }
 
-    @Override
     public int getCol() {
         return column;
     }
