@@ -6,16 +6,18 @@
  */
 package textExcel;
 
-//Update this file with your own code.
+// Update this file with your own code.
 
 public class SpreadsheetLocation implements Location {
 	
+	private String cellName;
 	private int row;
 	private int column;
 	
 	public SpreadsheetLocation(String cellName) {
+		this.cellName = cellName;
 		String number = cellName.substring(1);
-		char letter = cellName.charAt(0);
+		char letter = cellName.toUpperCase().charAt(0);
     		row = Integer.parseInt(number) - 1;
     		column = Character.toUpperCase(letter) - 'A'; 
     }

@@ -13,10 +13,10 @@ public class Spreadsheet implements Grid {
 	private Cell[][] arrayOfCells;
 	
 	public Spreadsheet() {
-		arrayOfCells = new Cell[getRows()][getCols()];
+		arrayOfCells = new Cell[20][12];
 	}
 		
-	@Override 
+	@Override
 	public String processCommand(String command) {
 		String[] commandSplit = command.split(" ", 3);
 		if (commandSplit[0].length() == 0) {
