@@ -18,7 +18,7 @@ public class TextCell implements Cell {
 		}
 		return input ;
 	}
-
+	
 	public String fullCellText() {
 		return "\"" + input + "\"";
 	}

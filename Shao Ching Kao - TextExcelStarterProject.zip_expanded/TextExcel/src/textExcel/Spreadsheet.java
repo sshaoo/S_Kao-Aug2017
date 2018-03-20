@@ -10,10 +10,14 @@ package textExcel;
 
 public class Spreadsheet implements Grid {
 	
-	private Cell[][] arrayOfCells;
+	private Cell[][] arrayOfCells = new Cell[20][12];
 	
 	public Spreadsheet() {
-		arrayOfCells = new Cell[20][12];
+		for (int i = 0; i < getRows(); i++) {
+			for (int j = 0; j < getCols(); j++) {
+				arrayOfCells[i][j] = new EmptyCell();
+			}
+		}	
 	}
 		
 	public String processCommand(String command) {
@@ -22,24 +26,27 @@ public class Spreadsheet implements Grid {
 			return "";
 		}
 		if (commandSplit.length == 1) {
-			return getCell(new SpreadsheetLocation(commandSplit[0])).fullCellText();
+			return getCell(new SpreadsheetLocation(command)).fullCellText();
 		}
 		else if (commandSplit[1].equals("=")) {
 			Location newSpreadsheetOne = new SpreadsheetLocation(commandSplit[0]);
 			arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new TextCell(commandSplit[2]);
+			return getGridText();
 		}
-		else if (commandSplit[0].equalsIgnoreCase("clear")) {
+		else if (commandSplit[0].toLowerCase().equals("clear")) {
 			for (int i = 0; i < getRows(); i++) {
 				for (int j = 0; j < getCols(); j++) {
 					arrayOfCells[i][j] = new EmptyCell();
 				}
 			}
+			return getGridText();
 		}
 		else if (commandSplit[0].toLowerCase().startsWith("clear ")) {
 			Location newSpreadsheetTwo = new SpreadsheetLocation(commandSplit[commandSplit.length - 1]);
 			arrayOfCells[newSpreadsheetTwo.getRow()][newSpreadsheetTwo.getCol()] = new EmptyCell();
+			return getGridText();
 		}
-		return getGridText();
+		return "";
 	}
 
 	public int getRows() {
@@ -51,13 +58,13 @@ public class Spreadsheet implements Grid {
 	}
  
 	public Cell getCell(Location loc) {
-		return arrayOfCells[loc.getCol()][loc.getRow()];
+		return arrayOfCells[loc.getRow()][loc.getCol()];
 	}
 
 	public String getGridText() {
 		String spreadsheet = "   ";
 		for(int i = 0; i < getCols(); i++) {
-			spreadsheet += ("|" + (char) (i + 'A') + "       ");
+			spreadsheet += ("|" + (char) (i + 'A') + "         ");
 		}
 		spreadsheet += "|\n";
 		for(int i = 1; i <= getRows(); i++) {

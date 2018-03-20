@@ -15,16 +15,13 @@ public class TextExcel {
 		Spreadsheet sheet = new Spreadsheet();
 	    Scanner console = new Scanner(System.in);
 	    System.out.println("Please enter command. To quit, type \"quit\".");
-	    boolean done = false;
-	    //TestsALL.Helper th = new TestsALL.Helper();
-	    //System.out.println(th.getText());
-	    while (!done == true) {
-	    		String input = console.nextLine();
+	    // TestsALL.Helper th = new TestsALL.Helper();
+	    // System.out.println(th.getText());
+	    String input = console.nextLine();
+	    while (!input.toLowerCase().equals("quit")) {
 	    		System.out.println(sheet.processCommand(input));
-	    		if (input.equalsIgnoreCase("quit")) {
-	    			System.out.println("program exited");
-	    			done = true;
-	    		}
-	    }
+	    	    System.out.println("Please enter next command. To quit, type \"quit\".");
+	    		input = console.nextLine();
+	    }		
 	}
 }
