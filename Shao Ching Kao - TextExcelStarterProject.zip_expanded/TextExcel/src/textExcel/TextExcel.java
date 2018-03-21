@@ -17,9 +17,10 @@ public class TextExcel {
 	    System.out.println("Please enter command. To quit, type \"quit\".");
 	    // TestsALL.Helper th = new TestsALL.Helper();
 	    // System.out.println(th.getText());
+	    // System.out.println(sheet.getGridText());
 	    String input = console.nextLine();
 	    while (!input.toLowerCase().equals("quit")) {
-	    		System.out.println(sheet.processCommand(input));
+	    		System.out.print(sheet.processCommand(input));
 	    	    System.out.println("Please enter next command. To quit, type \"quit\".");
 	    		input = console.nextLine();
 	    }		

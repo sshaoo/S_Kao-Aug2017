@@ -5,18 +5,20 @@ public class TextCell implements Cell {
 	private String input;
 	
 	public TextCell (String text) {
-		this.input = input;
+		input = text.substring(1, text.length() - 1);
 	}
 	
 	public String abbreviatedCellText() {
 		if (input.length() > 10) {
 			return input.substring(0, 10);
 		}
-		String spaces = "";
-		for(int i = 0; i < (10 - input.length()); i++) {
-			input += " ";
+		else {
+			String answer = input;
+			for(int i = 0; i < (10 - input.length()); i++) {
+				answer += " ";
+			}
+			return answer;
 		}
-		return input ;
 	}
 	
 	public String fullCellText() {
