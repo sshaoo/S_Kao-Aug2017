@@ -26,7 +26,7 @@ public class Spreadsheet implements Grid {
 			return "";
 		}
 		else if (command.toLowerCase().contains("=")) {
-			Location newSpreadsheetOne = new SpreadsheetLocation(commandSplit[0]);
+			SpreadsheetLocation newSpreadsheetOne = new SpreadsheetLocation(commandSplit[0]);
 			arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new TextCell(commandSplit[2]);
 			return getGridText();
 		}
@@ -39,7 +39,7 @@ public class Spreadsheet implements Grid {
 			return getGridText();
 		}
 		else if (commandSplit.length == 2) {
-			Location newSpreadsheetTwo = new SpreadsheetLocation(commandSplit[commandSplit.length - 1]);
+			SpreadsheetLocation newSpreadsheetTwo = new SpreadsheetLocation(commandSplit[commandSplit.length - 1]);
 			arrayOfCells[newSpreadsheetTwo.getRow()][newSpreadsheetTwo.getCol()] = new EmptyCell();
 			return getGridText();
 		}
