@@ -10,11 +10,11 @@ package textExcel;
 
 public class Spreadsheet implements Grid {
 	
-	private Cell[][] arrayOfCells = new Cell[20][12];
+	private Cell[][] arrayOfCells = new Cell[getRows()][getCols()];
 	
 	public Spreadsheet() {
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 12; j++) {
+		for (int i = 0; i < getRows(); i++) {
+			for (int j = 0; j < getCols(); j++) {
 				arrayOfCells[i][j] = new EmptyCell();
 			}
 		}	
@@ -31,8 +31,8 @@ public class Spreadsheet implements Grid {
 			return getGridText();
 		}
 		else if (commandSplit[0].toLowerCase().equals("clear") && commandSplit.length == 1) {
-			for (int i = 0; i < 20; i++) {
-				for (int j = 0; j < 12; j++) {
+			for (int i = 0; i < getRows(); i++) {
+				for (int j = 0; j < getCols(); j++) {
 					arrayOfCells[i][j] = new EmptyCell();
 				}
 			}
@@ -66,14 +66,14 @@ public class Spreadsheet implements Grid {
 			spreadsheet += ("|" + i + "         ");
 		}
 		spreadsheet += "|\n";
-		for(int i = 1; i <= 20; i++) {
+		for(int i = 1; i <= getRows(); i++) {
 			if (i < 10) {
 				spreadsheet += i + "  ";
 			}
 			else {
 				spreadsheet += i + " ";
 			}
-			for (int j = 0; j < 12; j++) {
+			for (int j = 0; j < getCols(); j++) {
 				spreadsheet += "|" + arrayOfCells[i - 1][j].abbreviatedCellText();
 			}
 			spreadsheet += "|\n";
