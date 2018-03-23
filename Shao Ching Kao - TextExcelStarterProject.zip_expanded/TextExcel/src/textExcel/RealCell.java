@@ -6,22 +6,13 @@
  */
 package textExcel;
 
-public class RealCell implements Cell {
+public abstract class RealCell implements Cell {
 
-	public RealCell() {
-		// TODO Auto-generated constructor stub
+	private String input;
+	
+	public RealCell(String input) {
+		this.input = input;
 	}
 
-	@Override
-	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String fullCellText() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	public abstract double getDoubleValue();
 }
