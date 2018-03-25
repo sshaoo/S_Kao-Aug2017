@@ -20,7 +20,7 @@ public class TextCell implements Cell {
 		}
 		else {
 			String answer = input;
-			for(int i = 0; i < (10 - input.length()); i++) {
+			for (int i = input.length(); i < 10; i++) {
 				answer += " ";
 			}
 			return answer;

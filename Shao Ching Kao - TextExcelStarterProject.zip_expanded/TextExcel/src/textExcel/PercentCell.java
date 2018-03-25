@@ -13,14 +13,20 @@ public class PercentCell extends RealCell {
 	}
 
 	public String abbreviatedCellText() {
-		return null;
+		String[] answer = getInput().split("\\.");
+		String spaces = "";
+		for (int i = answer[0].length(); i < 9; i++) {
+			spaces += " ";
+		}
+		return answer[0] + "%" + spaces;		
 	}
 
 	public String fullCellText() {
-		return null;
+		return "" + getDoubleValue();
 	}
 
 	public double getDoubleValue() {
-		return 0;
+		String decimalAnswer = "" + getInput().substring(0, getInput().length() - 1);
+		return Double.parseDouble(decimalAnswer) * .01;
 	}
 }

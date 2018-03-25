@@ -17,7 +17,7 @@ public class FormulaCell extends RealCell {
 	}
 
 	public String fullCellText() {
-		return null;
+		return getInput();
 	}
 
 	public double getDoubleValue() {

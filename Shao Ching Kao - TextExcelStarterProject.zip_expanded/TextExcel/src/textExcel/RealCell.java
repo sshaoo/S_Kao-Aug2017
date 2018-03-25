@@ -14,5 +14,8 @@ public abstract class RealCell implements Cell {
 		this.input = input;
 	}
 
+	public String getInput() {
+		return input;
+	}
 	public abstract double getDoubleValue();
 }

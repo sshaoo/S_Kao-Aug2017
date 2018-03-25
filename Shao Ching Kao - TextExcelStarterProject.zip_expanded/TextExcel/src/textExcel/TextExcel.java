@@ -20,7 +20,7 @@ public class TextExcel {
 	    // System.out.println(sheet.getGridText());
 	    String input = console.nextLine();
 	    while (!input.toLowerCase().equals("quit")) {
-	    		System.out.print(sheet.processCommand(input));
+	    		System.out.println(sheet.processCommand(input));
 	    	    System.out.println("Please enter next command. To quit, type \"quit\".");
 	    		input = console.nextLine();
 	    }		

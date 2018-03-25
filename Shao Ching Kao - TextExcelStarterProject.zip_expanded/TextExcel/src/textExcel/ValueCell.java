@@ -10,18 +10,26 @@ public class ValueCell extends RealCell {
 	
 	public ValueCell(String input) {
 		super(input);
-		Integer.parseInt(input);
 	}
 	
 	public String abbreviatedCellText() {
-		return null;
+		String answer = "" + getDoubleValue();
+		if (answer.length() > 10) {
+			return answer.substring(0, 10);
+		}
+		else {
+			for(int i = answer.length(); i < 10; i++) {
+				answer += " ";
+			}
+			return answer;
+		}
 	}
 
 	public String fullCellText() {
-		return null;
+		return getInput();
 	}
 
 	public double getDoubleValue() {
-		return 0;
+		return Double.parseDouble(getInput());
 	}
 }

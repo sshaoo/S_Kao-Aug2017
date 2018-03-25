@@ -27,7 +27,19 @@ public class Spreadsheet implements Grid {
 		}
 		else if (command.toLowerCase().contains("=")) {
 			SpreadsheetLocation newSpreadsheetOne = new SpreadsheetLocation(commandSplit[0]);
-			arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new TextCell(commandSplit[2]);
+			if (commandSplit[2].startsWith("\"")) {	
+				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new TextCell(commandSplit[2]);
+				
+			}
+			else if (commandSplit[2].endsWith("%")) {
+				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new PercentCell(commandSplit[2]);
+				
+			}
+			// else if (commandSplit[2].startsWith("(") {
+			// ^^^ thats for formula cell
+			else {
+				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new ValueCell(commandSplit[2]);
+			}
 			return getGridText();
 		}
 		else if (commandSplit[0].toLowerCase().equals("clear") && commandSplit.length == 1) {
