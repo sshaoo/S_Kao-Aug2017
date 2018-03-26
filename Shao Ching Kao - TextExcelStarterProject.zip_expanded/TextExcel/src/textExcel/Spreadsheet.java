@@ -6,8 +6,6 @@
  */
 package textExcel;
 
-// Update this file with your own code.
-
 public class Spreadsheet implements Grid {
 	
 	private Cell[][] arrayOfCells = new Cell[getRows()][getCols()];
@@ -29,11 +27,9 @@ public class Spreadsheet implements Grid {
 			SpreadsheetLocation newSpreadsheetOne = new SpreadsheetLocation(commandSplit[0]);
 			if (commandSplit[2].startsWith("\"")) {	
 				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new TextCell(commandSplit[2]);
-				
 			}
 			else if (commandSplit[2].endsWith("%")) {
-				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new PercentCell(commandSplit[2]);
-				
+				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new PercentCell(commandSplit[2]);	
 			}
 			// else if (commandSplit[2].startsWith("(") {
 			// ^^^ thats for formula cell

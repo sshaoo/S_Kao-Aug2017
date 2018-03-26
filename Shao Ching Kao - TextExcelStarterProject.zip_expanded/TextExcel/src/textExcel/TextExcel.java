@@ -14,15 +14,12 @@ public class TextExcel {
 	public static void main(String[] args) {
 		Spreadsheet sheet = new Spreadsheet();
 	    Scanner console = new Scanner(System.in);
-	    System.out.println("Please enter command. To quit, type \"quit\".");
-	    // TestsALL.Helper th = new TestsALL.Helper();
-	    // System.out.println(th.getText());
-	    // System.out.println(sheet.getGridText());
+	    System.out.println("Welcome to TextExcel! To perform your command, type in command. To quit, type \"quit\".");
 	    String input = console.nextLine();
 	    while (!input.toLowerCase().equals("quit")) {
 	    		System.out.println(sheet.processCommand(input));
-	    	    System.out.println("Please enter next command. To quit, type \"quit\".");
+	    	    System.out.println("To perform next command, type in command. To quit, type \"quit\".");
 	    		input = console.nextLine();
-	    }		
+	    }
 	}
 }
