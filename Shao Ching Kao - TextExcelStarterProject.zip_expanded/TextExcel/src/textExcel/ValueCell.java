@@ -14,7 +14,7 @@ public class ValueCell extends RealCell {
 	
 	public String abbreviatedCellText() {
 		String answer = "" + getDoubleValue();
-		if (answer.length() > 10) {
+		if (answer.length() > 10) { // tests if the answer 
 			return answer.substring(0, 10);
 		}
 		else {
