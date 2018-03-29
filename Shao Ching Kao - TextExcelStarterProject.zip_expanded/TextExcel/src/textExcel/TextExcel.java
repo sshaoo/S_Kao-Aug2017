@@ -10,7 +10,6 @@ import java.util.Scanner;
 // Update this file with your own code.
 
 public class TextExcel {
-
 	public static void main(String[] args) {
 		Spreadsheet sheet = new Spreadsheet();
 	    Scanner console = new Scanner(System.in); // creates the console to allow user input

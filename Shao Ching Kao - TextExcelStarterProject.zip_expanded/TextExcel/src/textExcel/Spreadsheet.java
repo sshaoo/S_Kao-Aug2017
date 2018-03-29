@@ -31,8 +31,9 @@ public class Spreadsheet implements Grid {
 			else if (commandSplit[2].endsWith("%")) { // if user wants to input a percent, then this tests for whether they have the percent sign
 				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new PercentCell(commandSplit[2]);	
 			}
-			// else if (commandSplit[2].startsWith("(") { // if user wants to input a formula, then this tests for whether they have parenthesis 
-			// ^^^ thats for formula cell
+			else if (commandSplit[2].startsWith("(")) { // if user wants to input a formula, then this tests for whether they have parenthesis 
+				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new FormulaCell(commandSplit[2]);
+			}
 			else { // if user wants to input a numerical value, then this is the go-to if every other test does not fit
 				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new ValueCell(commandSplit[2]);
 			}
@@ -41,13 +42,13 @@ public class Spreadsheet implements Grid {
 		else if (commandSplit[0].toLowerCase().equals("clear") && commandSplit.length == 1) { // tests if the user wants to clear the whole spreadsheet
 			for (int i = 0; i < getRows(); i++) {
 				for (int j = 0; j < getCols(); j++) {
-					arrayOfCells[i][j] = new EmptyCell(); // creates an empty string
+					arrayOfCells[i][j] = new EmptyCell(); // creates an empty spreadsheet
 				}
 			}
 			return getGridText();
 		}
 		else if (commandSplit.length == 2) { // tests for whether it calls to clear one cell only
-			SpreadsheetLocation newSpreadsheetTwo = new SpreadsheetLocation(commandSplit[commandSplit.length - 1]);
+			SpreadsheetLocation newSpreadsheetTwo = new SpreadsheetLocation(commandSplit[1]);
 			arrayOfCells[newSpreadsheetTwo.getRow()][newSpreadsheetTwo.getCol()] = new EmptyCell();
 			return getGridText();
 		}
