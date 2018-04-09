@@ -8,7 +8,7 @@ package textExcel;
 
 public class FormulaCell extends RealCell {
 
-	public FormulaCell(String input) {
+ 	public FormulaCell(String input) {
 		super(input);
 	}
 
@@ -21,6 +21,22 @@ public class FormulaCell extends RealCell {
 	}
 
 	public double getDoubleValue() {
-		return 0;
+		String inputSplit[] = getInput().split(" ");
+		double answer = Double.parseDouble(inputSplit[0]);
+		for (int i = 0; i < inputSplit.length; i++) {
+			if (inputSplit[i] == "+") {
+				answer += Double.parseDouble(inputSplit[i + 1]);
+			}
+			else if (inputSplit[i] == "-") {
+				answer -= Double.parseDouble(inputSplit[i + 1]);
+			}
+			else if (inputSplit[i] == "*") {
+				answer *= Double.parseDouble(inputSplit[i + 1]);
+			}
+			else if (inputSplit[i] == "/") {
+				answer /= Double.parseDouble(inputSplit[i + 1]);
+			}
+			return answer;
+		}
 	}
 }
