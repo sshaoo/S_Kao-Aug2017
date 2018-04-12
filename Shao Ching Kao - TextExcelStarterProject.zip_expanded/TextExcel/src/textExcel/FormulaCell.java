@@ -34,7 +34,7 @@ public class FormulaCell extends RealCell {
 		String inputSplit[] = getInput().substring(getInput().indexOf("(") + 2, getInput().indexOf(")") - 1).split(" ");
 		double answer = Double.parseDouble(inputSplit[0]);
 		for (int i = 1; i < inputSplit.length; i += 2) {
-			if (inputSplit[i].equals("+")) {
+			if (inputSplit[i].equals("+")) {					
 				answer += Double.parseDouble(inputSplit[i + 1]);
 			}
 			else if (inputSplit[i].equals("-")) {
