@@ -8,9 +8,10 @@ package textExcel;
 
 public class FormulaCell extends RealCell {
 	
+	Spreadsheet values;
+	
  	public FormulaCell(String input) {
 		super(input);
-		
 	}
 
 	public String abbreviatedCellText() {
@@ -32,21 +33,49 @@ public class FormulaCell extends RealCell {
 
 	public double getDoubleValue() {
 		String inputSplit[] = getInput().substring(getInput().indexOf("(") + 2, getInput().indexOf(")") - 1).split(" ");
-		double answer = Double.parseDouble(inputSplit[0]);
-		for (int i = 1; i < inputSplit.length; i += 2) {
-			if (inputSplit[i].equals("+")) {					
-				answer += Double.parseDouble(inputSplit[i + 1]);
+		if (inputSplit[0].equals("SUM") || inputSplit[0].equals("AVG")) {
+			String[] separatedInput = inputSplit[1].split("-");
+			double sum = 0.0;
+			int total = 0;
+			for (char col = separatedInput[0].charAt(0); col <= separatedInput[1].charAt(0); col++) {
+				for (int row = Integer.parseInt(inputSplit[0].substring(1, 2)); row <= Integer.parseInt(separatedInput[1].substring(1, 2)); row++) {
+					sum += accessToValue("" + col + row);
+					total++;
+				}
 			}
-			else if (inputSplit[i].equals("-")) {
-				answer -= Double.parseDouble(inputSplit[i + 1]);
+			if (inputSplit[0].equals("SUM")) {
+				return sum;
 			}
-			else if (inputSplit[i].equals("*")) {
-				answer *= Double.parseDouble(inputSplit[i + 1]);
-			}
-			else if (inputSplit[i].equals("/")) {
-				answer /= Double.parseDouble(inputSplit[i + 1]);
+			else {
+				return sum / total;
 			}
 		}
-		return answer;
+		else {
+			double answer = Double.parseDouble(inputSplit[0]);
+			for (int i = 1; i < inputSplit.length; i += 2) {
+				if (inputSplit[i].equals("+")) {					
+					answer += accessToValue(inputSplit[i + 1]);
+				}
+				else if (inputSplit[i].equals("-")) {
+					answer -= accessToValue(inputSplit[i + 1]);
+				}
+				else if (inputSplit[i].equals("*")) {
+					answer *= accessToValue(inputSplit[i + 1]);
+				}
+				else if (inputSplit[i].equals("/")) {
+					answer /= accessToValue(inputSplit[i + 1]);
+				}
+			}
+			return answer;
+		}
+	}
+	
+	public double accessToValue (String cellIdentifier) {
+		if (Character.isAlphabetic(cellIdentifier.charAt(0))) {
+				return Double.parseDouble(values.getCell(new SpreadsheetLocation(cellIdentifier)).abbreviatedCellText());
+		}
+		else {
+			return Double.parseDouble(cellIdentifier);
+		}
 	}
 }
