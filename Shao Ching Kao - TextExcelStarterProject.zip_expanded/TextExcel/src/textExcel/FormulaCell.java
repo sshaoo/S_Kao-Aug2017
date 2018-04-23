@@ -8,7 +8,7 @@ package textExcel;
 
 public class FormulaCell extends RealCell {
 	
-	Spreadsheet values;
+	Cell[][] values;
 	
  	public FormulaCell(String input) {
 		super(input);
@@ -38,12 +38,12 @@ public class FormulaCell extends RealCell {
 			double sum = 0.0;
 			int total = 0;
 			for (char col = separatedInput[0].charAt(0); col <= separatedInput[1].charAt(0); col++) {
-				for (int row = Integer.parseInt(inputSplit[0].substring(1, 2)); row <= Integer.parseInt(separatedInput[1].substring(1, 2)); row++) {
+				for (int row = Integer.parseInt(separatedInput[0].substring(1)); row <= Integer.parseInt(separatedInput[1].substring(1)); row++) {
 					sum += accessToValue("" + col + row);
 					total++;
 				}
 			}
-			if (inputSplit[0].equals("SUM")) {
+			if (inputSplit[0].contains("SUM")) {
 				return sum;
 			}
 			else {
@@ -72,7 +72,9 @@ public class FormulaCell extends RealCell {
 	
 	public double accessToValue (String cellIdentifier) {
 		if (Character.isAlphabetic(cellIdentifier.charAt(0))) {
-				return Double.parseDouble(values.getCell(new SpreadsheetLocation(cellIdentifier)).abbreviatedCellText());
+			SpreadsheetLocation locationOne = new SpreadsheetLocation(cellIdentifier);
+			String value = values[locationOne.getRow()][locationOne.getCol()].abbreviatedCellText().trim();
+				return Double.parseDouble(value);
 		}
 		else {
 			return Double.parseDouble(cellIdentifier);
