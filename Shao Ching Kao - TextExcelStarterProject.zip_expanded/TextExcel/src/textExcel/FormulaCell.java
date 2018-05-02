@@ -8,10 +8,13 @@ package textExcel;
 
 public class FormulaCell extends RealCell {
 	
-	Cell[][] values;
+	private String input;
+	private Cell[][] spreadsheet;
 	
- 	public FormulaCell(String input) {
-		super(input);
+	public FormulaCell(String value, Cell[][] spreadsheet) {
+		super(value);
+		this.input = super.getInput();
+		this.spreadsheet = spreadsheet;
 	}
 
 	public String abbreviatedCellText() {
@@ -32,52 +35,69 @@ public class FormulaCell extends RealCell {
 	}
 
 	public double getDoubleValue() {
-		String inputSplit[] = getInput().substring(getInput().indexOf("(") + 2, getInput().indexOf(")") - 1).split(" ");
-		if (inputSplit[0].equals("SUM") || inputSplit[0].equals("AVG")) {
-			String[] separatedInput = inputSplit[1].split("-");
-			double sum = 0.0;
+		String inputSplit[] = getInput().substring(2, this.getInput().length() - 2).split(" ");
+		double sum = 0.0;
+		if (inputSplit[0].toUpperCase().equals("SUM") || inputSplit[0].toUpperCase().equals("AVG")) {
+			String[] separatedInput = inputSplit[1].split("-");	
 			int total = 0;
 			for (char col = separatedInput[0].charAt(0); col <= separatedInput[1].charAt(0); col++) {
 				for (int row = Integer.parseInt(separatedInput[0].substring(1)); row <= Integer.parseInt(separatedInput[1].substring(1)); row++) {
-					sum += accessToValue("" + col + row);
+					String cell = "" + col + row;
+					SpreadsheetLocation firstLocation = new SpreadsheetLocation (cell);
+					sum += Double.parseDouble(spreadsheet[firstLocation.getRow()][firstLocation.getCol()].abbreviatedCellText().trim());
 					total++;
 				}
 			}
-			if (inputSplit[0].contains("SUM")) {
-				return sum;
-			}
-			else {
+			if (inputSplit[0].toUpperCase().equals("AVG")) {
 				return sum / total;
 			}
+			else {
+				return sum;
+			}
+		}
+		if (inputSplit[0].charAt(0) >= 'A') {
+			SpreadsheetLocation secondLocation = new SpreadsheetLocation(inputSplit[0]);
+			if (spreadsheet[secondLocation.getRow()][secondLocation.getCol()].fullCellText().equals("")) {
+				sum = 0;
+			}
+			else {
+				sum = Double.parseDouble(spreadsheet[secondLocation.getRow()][secondLocation.getCol()].abbreviatedCellText().trim());
+			}
 		}
 		else {
-			double answer = Double.parseDouble(inputSplit[0]);
-			for (int i = 1; i < inputSplit.length; i += 2) {
-				if (inputSplit[i].equals("+")) {					
-					answer += accessToValue(inputSplit[i + 1]);
+			sum = Double.parseDouble(inputSplit[0]);
+		}
+		for (int i = 1; i < inputSplit.length; i++) {
+			double nextNum;
+			if (inputSplit[i + 1].charAt(0) >= 'A') {
+				SpreadsheetLocation thirdLocation = new SpreadsheetLocation(inputSplit[i + 1]);
+				if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()] instanceof FormulaCell) {
+					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText().trim());
 				}
-				else if (inputSplit[i].equals("-")) {
-					answer -= accessToValue(inputSplit[i + 1]);
+				else if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].equals("")) {
+					nextNum = 0;
 				}
-				else if (inputSplit[i].equals("*")) {
-					answer *= accessToValue(inputSplit[i + 1]);
-				}
-				else if (inputSplit[i].equals("/")) {
-					answer /= accessToValue(inputSplit[i + 1]);
+				else {
+					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].fullCellText());
 				}
 			}
-			return answer;
+			else {
+				nextNum = Double.parseDouble(inputSplit[i + 1]);
+			}
+			if (inputSplit[i].equals("+")) {					
+				sum += nextNum;
+			}
+			else if (inputSplit[i].equals("-")) {
+				sum -= nextNum;
+			}
+			else if (inputSplit[i].equals("*")) {
+				sum *= nextNum;		
+			}
+			else if (inputSplit[i].equals("/")) {
+				sum /= nextNum;
+			}	
+			i++;
 		}
-	}
-	
-	public double accessToValue (String cellIdentifier) {
-		if (Character.isAlphabetic(cellIdentifier.charAt(0))) {
-			SpreadsheetLocation locationOne = new SpreadsheetLocation(cellIdentifier);
-			String value = values[locationOne.getRow()][locationOne.getCol()].abbreviatedCellText().trim();
-				return Double.parseDouble(value);
-		}
-		else {
-			return Double.parseDouble(cellIdentifier);
-		}
+		return sum;
 	}
 }

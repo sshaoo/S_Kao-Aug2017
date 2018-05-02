@@ -32,7 +32,7 @@ public class Spreadsheet implements Grid {
 				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new PercentCell(commandSplit[2]);	
 			}
 			else if (commandSplit[2].startsWith("(")) { // if user wants to input a formula, then this tests for whether they have parenthesis 
-				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new FormulaCell(commandSplit[2]);
+				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new FormulaCell(commandSplit[2], arrayOfCells);
 			}
 			else { // if user wants to input a numerical value, then this is the go-to if every other test does not fit
 				arrayOfCells[newSpreadsheetOne.getRow()][newSpreadsheetOne.getCol()] = new ValueCell(commandSplit[2]);
