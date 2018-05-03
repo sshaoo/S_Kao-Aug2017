@@ -40,11 +40,11 @@ public class FormulaCell extends RealCell {
 		if (inputSplit[0].toUpperCase().equals("SUM") || inputSplit[0].toUpperCase().equals("AVG")) {
 			String[] separatedInput = inputSplit[1].split("-");	
 			int total = 0;
-			for (char col = separatedInput[0].charAt(0); col <= separatedInput[1].charAt(0); col++) {
+			for (char col = separatedInput[0].toLowerCase().charAt(0); col <= separatedInput[1].toLowerCase().charAt(0); col++) {
 				for (int row = Integer.parseInt(separatedInput[0].substring(1)); row <= Integer.parseInt(separatedInput[1].substring(1)); row++) {
 					String cell = "" + col + row;
 					SpreadsheetLocation firstLocation = new SpreadsheetLocation (cell);
-					sum += Double.parseDouble(spreadsheet[firstLocation.getRow()][firstLocation.getCol()].abbreviatedCellText().trim());
+					sum += Double.parseDouble(spreadsheet[firstLocation.getRow()][firstLocation.getCol()].abbreviatedCellText());
 					total++;
 				}
 			}
@@ -61,7 +61,7 @@ public class FormulaCell extends RealCell {
 				sum = 0;
 			}
 			else {
-				sum = Double.parseDouble(spreadsheet[secondLocation.getRow()][secondLocation.getCol()].abbreviatedCellText().trim());
+				sum = Double.parseDouble(spreadsheet[secondLocation.getRow()][secondLocation.getCol()].abbreviatedCellText());
 			}
 		}
 		else {
@@ -72,9 +72,9 @@ public class FormulaCell extends RealCell {
 			if (inputSplit[i + 1].charAt(0) >= 'A') {
 				SpreadsheetLocation thirdLocation = new SpreadsheetLocation(inputSplit[i + 1]);
 				if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()] instanceof FormulaCell) {
-					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText().trim());
+					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText());
 				}
-				else if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].equals("")) {
+				else if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].fullCellText().equals("")) {
 					nextNum = 0;
 				}
 				else {
