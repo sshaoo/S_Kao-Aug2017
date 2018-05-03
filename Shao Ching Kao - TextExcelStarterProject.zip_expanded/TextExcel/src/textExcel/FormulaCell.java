@@ -51,7 +51,7 @@ public class FormulaCell extends RealCell {
 			if (inputSplit[0].toUpperCase().equals("AVG")) {
 				return sum / total;
 			}
-			else {
+			else if (inputSplit[0].toUpperCase().equals("SUM")) {
 				return sum;
 			}
 		}
