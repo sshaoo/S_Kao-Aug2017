@@ -57,12 +57,7 @@ public class FormulaCell extends RealCell {
 		}
 		if (inputSplit[0].charAt(0) >= 'A') {
 			SpreadsheetLocation secondLocation = new SpreadsheetLocation(inputSplit[0]);
-			if (spreadsheet[secondLocation.getRow()][secondLocation.getCol()].fullCellText().equals("")) {
-				sum = 0;
-			}
-			else {
-				sum = Double.parseDouble(spreadsheet[secondLocation.getRow()][secondLocation.getCol()].abbreviatedCellText());
-			}
+			sum = Double.parseDouble(spreadsheet[secondLocation.getRow()][secondLocation.getCol()].abbreviatedCellText());
 		}
 		else {
 			sum = Double.parseDouble(inputSplit[0]);
@@ -73,9 +68,6 @@ public class FormulaCell extends RealCell {
 				SpreadsheetLocation thirdLocation = new SpreadsheetLocation(inputSplit[i + 1]);
 				if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()] instanceof FormulaCell) {
 					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText());
-				}
-				else if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].fullCellText().equals("")) {
-					nextNum = 0;
 				}
 				else {
 					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].fullCellText());
