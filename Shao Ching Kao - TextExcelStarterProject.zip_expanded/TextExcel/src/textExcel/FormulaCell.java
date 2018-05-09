@@ -66,12 +66,7 @@ public class FormulaCell extends RealCell {
 			double nextNum;
 			if (inputSplit[i + 1].charAt(0) >= 'A') {
 				SpreadsheetLocation thirdLocation = new SpreadsheetLocation(inputSplit[i + 1]);
-				if (spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()] instanceof FormulaCell) {
-					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText());
-				}
-				else {
-					nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].fullCellText());
-				}
+				nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText());
 			}
 			else {
 				nextNum = Double.parseDouble(inputSplit[i + 1]);
