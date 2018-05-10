@@ -68,7 +68,7 @@ public class FormulaCell extends RealCell {
 				SpreadsheetLocation thirdLocation = new SpreadsheetLocation(inputSplit[i + 1]);
 				nextNum = Double.parseDouble(spreadsheet[thirdLocation.getRow()][thirdLocation.getCol()].abbreviatedCellText());
 			}
-			else {
+			else { 
 				nextNum = Double.parseDouble(inputSplit[i + 1]);
 			}
 			if (inputSplit[i].equals("+")) {					
