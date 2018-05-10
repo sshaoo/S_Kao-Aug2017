@@ -11,9 +11,9 @@ public class Spreadsheet implements Grid {
 	private Cell[][] arrayOfCells = new Cell[getRows()][getCols()]; // private field
 	
 	public Spreadsheet() {
-		for (int i = 0; i < getRows(); i++) {
-			for (int j = 0; j < getCols(); j++) {
-				arrayOfCells[i][j] = new EmptyCell(); // prints out a new spreadsheet
+		for (int row = 0; row < getRows(); row++) {
+			for (int col = 0; col < getCols(); col++) {
+				arrayOfCells[row][col] = new EmptyCell(); // prints out a new spreadsheet
 			}
 		}	
 	}
@@ -40,9 +40,9 @@ public class Spreadsheet implements Grid {
 			return getGridText();
 		}
 		else if (commandSplit[0].toLowerCase().equals("clear") && commandSplit.length == 1) { // tests if the user wants to clear the whole spreadsheet
-			for (int i = 0; i < getRows(); i++) {
-				for (int j = 0; j < getCols(); j++) {
-					arrayOfCells[i][j] = new EmptyCell(); // creates an empty spreadsheet
+			for (int row = 0; row < getRows(); row++) {
+				for (int col = 0; col < getCols(); col++) {
+					arrayOfCells[row][col] = new EmptyCell(); // creates an empty spreadsheet
 				}
 			}
 			return getGridText();
@@ -71,19 +71,19 @@ public class Spreadsheet implements Grid {
 
 	public String getGridText() {
 		String spreadsheet = "   ";
-		for(char i = 'A'; i <= 'L'; i++) { // for the columns
-			spreadsheet += ("|" + i + "         ");
+		for(char col = 'A'; col <= 'L'; col++) { // for the columns
+			spreadsheet += ("|" + col + "         ");
 		}
 		spreadsheet += "|\n";
-		for(int i = 1; i <= getRows(); i++) { // for the rows
-			if (i < 10) { // for the single digit values
-				spreadsheet += i + "  ";
+		for (int row = 1; row <= getRows(); row++) { // for the rows
+			if (row < 10) { // for the single digit values
+				spreadsheet += row + "  ";
 			}
 			else { // for the double digit values
-				spreadsheet += i + " ";
+				spreadsheet += row + " ";
 			}
-			for (int j = 0; j < getCols(); j++) {
-				spreadsheet += "|" + arrayOfCells[i - 1][j].abbreviatedCellText();
+			for (int col = 0; col < getCols(); col++) {
+				spreadsheet += "|" + arrayOfCells[row - 1][col].abbreviatedCellText();
 			}
 			spreadsheet += "|\n";
 		}
